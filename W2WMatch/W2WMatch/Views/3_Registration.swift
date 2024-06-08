@@ -82,7 +82,7 @@ struct Registration: View {
             
             Button("Зарегистрировать") {
 //                print("Email: \(userEmail)  Пароль: \(userPassword)")
-                NetworkModel().serverRequest(apiToUse: .registration, user: newUser) { statusCode in
+                NetworkModel().serverRequest(apiToUse: .registration, user: newUser) { statusCode, serverResponse in
                     
                     if statusCode == 201 {
                         DispatchQueue.main.async {

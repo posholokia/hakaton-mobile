@@ -11,12 +11,13 @@ struct Autorization: View {
     
     //@State private var willMoveToNextScreen = false
     @State private var showingAlert = false
+    @State var showingDetail = false
 //    @State private var userEmail = ""
 //    @State private var userPassword = ""
     @State private var user = UserModel()
     
-//    @FocusState private var emailFieldIsFocused: Bool
-//    @FocusState private var passwordFieldIsFocused: Bool
+    @State private var errorMessage = ""
+
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     func goHome() {
@@ -31,69 +32,128 @@ struct Autorization: View {
         }) {
             Image(systemName: "arrow.left")
                 .aspectRatio(contentMode: .fit)
-                .foregroundColor(/*@START_MENU_TOKEN@*/Color("W2wBlueColor")/*@END_MENU_TOKEN@*/)
+                .foregroundColor(Color("W2wBlueColor"))
         }
     }
     
     var body: some View {
         
         VStack {
-            Spacer()
+            
+            HStack {
+                Spacer()
+                ZStack {
+                    Image("RegistrationVector1")
+                    Image("RegistrationVector2")
+                        .padding(.top, -55.0)
+                        .padding(.trailing, 15.0)
+                    Image("RegistrationVector3")
+                        .padding(.top, 43.0)
+                        .padding(.trailing, 65.0)
+                    
+                }.padding(.trailing, 15.0)
+            }
+            
+            //Spacer()
+            
+            Image("logo vertical")
+                .padding(.top, 58.0)
             
             Text("Авторизация")
                 .foregroundColor(Color("W2wBlueColor"))
-                .font(.custom("Felidae-Regular", size: 38))
+                .font(.custom("PoiretOne-Regular", size: 38))
             
             Spacer()
             
             TextField("Введите ваш Email адрес",text: $user.email)
-                //.focused($emailFieldIsFocused)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .padding()
                 .frame(width: 255.0, height: 45.0)
                 .overlay( /// apply a rounded border
                     RoundedRectangle(cornerRadius: 15)
-                        .stroke(/*@START_MENU_TOKEN@*/Color("W2wBlueColor")/*@END_MENU_TOKEN@*/, lineWidth: 2))
-                .foregroundStyle(/*@START_MENU_TOKEN@*/Color("W2wBlueColor")/*@END_MENU_TOKEN@*/)
+                        .stroke(Color("W2wLightBlueColor"), lineWidth: 2))
+                .foregroundStyle(Color("W2wLightBlueColor"))
             
             TextField("Пароль", text: $user.password)
-                //.focused($passwordFieldIsFocused)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .padding()
                 .frame(width: 255.0, height: 45.0)
                 .overlay( /// apply a rounded border
                     RoundedRectangle(cornerRadius: 15)
-                        .stroke(/*@START_MENU_TOKEN@*/Color("W2wBlueColor")/*@END_MENU_TOKEN@*/, lineWidth: 2))
-                .foregroundStyle(/*@START_MENU_TOKEN@*/Color("W2wBlueColor")/*@END_MENU_TOKEN@*/)
+                        .stroke(Color("W2wLightBlueColor"), lineWidth: 2))
+                .foregroundStyle(Color("W2wLightBlueColor"))
             
             
             Button("Войти") {
 //                print("Email: \(userEmail)  Пароль: \(userPassword)")
-                NetworkModel().serverRequest(apiToUse: .authorization, user: user) { statusCode in
+                NetworkModel().serverRequest(apiToUse: .authorization, user: user) { statusCode, serverResponse in
                     
                     if statusCode == 200 {
                         DispatchQueue.main.async {
                             goHome()
                         }
                     } 
-                    if statusCode == 401 {
+                    if statusCode == 401 || statusCode == 400 {
                         showingAlert = true
+                        for key in serverResponse.keys {
+                            // переделать
+                            self.errorMessage = self.errorMessage + "\(serverResponse[key])\n"
+                        }
                     }
                 }
             }
-            .padding()
             .frame(width: 255.0, height: 45.0)
             .foregroundStyle(.white)
             .background {
                 RoundedRectangle(cornerRadius: 15)
-                    .fill(/*@START_MENU_TOKEN@*/Color("W2wBlueColor")/*@END_MENU_TOKEN@*/)
+                    .fill(Color("W2wLightBlueColor"))
             }
-            .alert("Аккаунт не найден!", isPresented: $showingAlert) {
+            .padding(.top)
+            .alert(errorMessage, isPresented: $showingAlert) {
                         Button("OK", role: .cancel) { }
             }
+            
+            Button(action: {
+                print("В разработке")
+            }) {
+                Text("Забыли пароль?")
+                    .foregroundColor(.gray)
+            }
+            
             Spacer()
+            
+            Image("Vector")
+                .padding(.top, 8.0)
+            Text("Войти с помощью")
+                .foregroundColor(.gray)
+                //.foregroundStyle(Color(cgColor: CGColor(red: 12.0, green: 12.0, blue: 12.0, alpha: 1)))
+                .multilineTextAlignment(.center)
+                .padding(.top, 0.0)
+            
+            Image("social")
+                .padding(.top, 8.0)
+            
+            HStack {
+                Text("Нет аккаунта?")
+                    .foregroundColor(.gray)
+                    //.foregroundStyle(Color(cgColor: CGColor(red: 12.0, green: 12.0, blue: 12.0, alpha: 1)))
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 0.0)
+                
+                Button(action: {
+                    self.showingDetail.toggle()
+                }) {
+                    Text("Зарегистрируйтесь")
+                        .foregroundColor(.black)
+                }.sheet(isPresented: $showingDetail) {
+                    Registration()
+                }
+            }
+            
+            Spacer()
+            
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: btnBack)
@@ -106,30 +166,30 @@ struct Autorization: View {
     Autorization()
 }
 
-/*
-extension View {
-    /// Navigate to a new view.
-    /// - Parameters:
-    ///   - view: View to navigate to.
-    ///   - binding: Only navigates when this condition is `true`.
-    func navigate<NewView: View>(to view: NewView, when binding: Binding<Bool>) -> some View {
-        NavigationView {
-            ZStack {
-                self
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
+//
+//extension View {
+//    /// Navigate to a new view.
+//    /// - Parameters:
+//    ///   - view: View to navigate to.
+//    ///   - binding: Only navigates when this condition is `true`.
+//    func navigate<NewView: View>(to view: NewView, when binding: Binding<Bool>) -> some View {
+//        NavigationView {
+//            ZStack {
+//                self
+//                    .navigationBarTitle("")
+//                    .navigationBarHidden(true)
+//
+//                NavigationLink(
+//                    destination: view
+//                        .navigationBarTitle("")
+//                        .navigationBarHidden(true),
+//                    isActive: binding
+//                ) {
+//                    EmptyView()
+//                }
+//            }
+//        }
+//        .navigationViewStyle(.stack)
+//    }
+//}
 
-                NavigationLink(
-                    destination: view
-                        .navigationBarTitle("")
-                        .navigationBarHidden(true),
-                    isActive: binding
-                ) {
-                    EmptyView()
-                }
-            }
-        }
-        .navigationViewStyle(.stack)
-    }
-}
-*/

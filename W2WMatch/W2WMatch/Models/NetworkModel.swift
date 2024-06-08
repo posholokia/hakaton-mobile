@@ -13,7 +13,7 @@ enum ApiUrlChooser {
 
 class NetworkModel {
     
-    func serverRequest(apiToUse: ApiUrlChooser, user: UserModel, completion: @escaping (Int)->()) {
+    func serverRequest(apiToUse: ApiUrlChooser, user: UserModel, completion: @escaping (Int, [String: Any])->()) {
         
         var apiUrl = ""
         var json: [String: Any] = [:]
@@ -53,15 +53,36 @@ class NetworkModel {
                 print(error?.localizedDescription ?? "No data")
                 return
             }
-            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-            if let responseJSON = responseJSON as? [String: Any] {
-                print(responseJSON) //Code after Successfull POST Request
-            }
+            let responseJSON = try? JSONSerialization.jsonObject(with: data)
+            guard let responseJSON = responseJSON as? [String: Any] else { return }
+            
+            print(responseJSON) //Code after Successfull POST Request
+                
             
             let httpResponse = response as? HTTPURLResponse
             guard let httpResponse = httpResponse else { return }
             
-            completion(httpResponse.statusCode)
+            if httpResponse.statusCode == 200 {
+                if let refreshToken = responseJSON["refresh"] as? String {
+                    user.refreshToken = refreshToken
+                }
+                
+                if let accessToken = responseJSON["access"] as? String {
+                    user.accessToken = accessToken
+                }
+                
+                //print("access Token: \(user.accessToken)        refresh Token: \(user.refreshToken)")
+            } else {
+                
+            }
+            
+            
+            print(responseJSON.keys)
+            
+            
+            print("==========    Current status code: \(httpResponse.statusCode)")
+            
+            completion(httpResponse.statusCode, responseJSON)
         }
         task.resume()
     }

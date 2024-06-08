@@ -13,6 +13,8 @@
 		2E2A787E2C1397C9003C1836 /* AlertServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2A787D2C1397C9003C1836 /* AlertServise.swift */; };
 		2E2A78802C139CAC003C1836 /* 4_MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2A787F2C139CAC003C1836 /* 4_MainPageView.swift */; };
 		2E2A78822C143B20003C1836 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2A78812C143B20003C1836 /* UserModel.swift */; };
+		2E8C0AE12C14DA6B00A19FB4 /* ErrorsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C0AE02C14DA6B00A19FB4 /* ErrorsModel.swift */; };
+		2E8C0AE32C14E66900A19FB4 /* PoiretOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E8C0AE22C14E66900A19FB4 /* PoiretOne-Regular.ttf */; };
 		2EC0122E2C0CA2FA0029AAE8 /* W2WMatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0122D2C0CA2FA0029AAE8 /* W2WMatchApp.swift */; };
 		2EC012302C0CA2FA0029AAE8 /* 1_HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0122F2C0CA2FA0029AAE8 /* 1_HelloView.swift */; };
 		2EC012322C0CA2FF0029AAE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC012312C0CA2FF0029AAE8 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 		2E2A787D2C1397C9003C1836 /* AlertServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertServise.swift; sourceTree = "<group>"; };
 		2E2A787F2C139CAC003C1836 /* 4_MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4_MainPageView.swift; sourceTree = "<group>"; };
 		2E2A78812C143B20003C1836 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		2E8C0AE02C14DA6B00A19FB4 /* ErrorsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsModel.swift; sourceTree = "<group>"; };
+		2E8C0AE22C14E66900A19FB4 /* PoiretOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoiretOne-Regular.ttf"; sourceTree = "<group>"; };
 		2EC0122A2C0CA2FA0029AAE8 /* W2WMatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = W2WMatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC0122D2C0CA2FA0029AAE8 /* W2WMatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = W2WMatchApp.swift; sourceTree = "<group>"; };
 		2EC0122F2C0CA2FA0029AAE8 /* 1_HelloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1_HelloView.swift; sourceTree = "<group>"; };
@@ -55,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				2E2A787B2C138FBC003C1836 /* NetworkModel.swift */,
+				2E8C0AE02C14DA6B00A19FB4 /* ErrorsModel.swift */,
 				2E2A787D2C1397C9003C1836 /* AlertServise.swift */,
 				2E2A78812C143B20003C1836 /* UserModel.swift */,
 			);
@@ -95,6 +100,7 @@
 			children = (
 				2EC0123B2C0E53E70029AAE8 /* Info.plist */,
 				2EC0123C2C0F133C0029AAE8 /* FelidaeFont.ttf */,
+				2E8C0AE22C14E66900A19FB4 /* PoiretOne-Regular.ttf */,
 				2EC0122D2C0CA2FA0029AAE8 /* W2WMatchApp.swift */,
 				2E2A78752C12523A003C1836 /* Models */,
 				2E2A78762C125243003C1836 /* Views */,
@@ -171,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EC0123D2C0F133C0029AAE8 /* FelidaeFont.ttf in Resources */,
+				2E8C0AE32C14E66900A19FB4 /* PoiretOne-Regular.ttf in Resources */,
 				2EC012352C0CA2FF0029AAE8 /* Preview Assets.xcassets in Resources */,
 				2EC012322C0CA2FF0029AAE8 /* Assets.xcassets in Resources */,
 			);
@@ -183,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8C0AE12C14DA6B00A19FB4 /* ErrorsModel.swift in Sources */,
 				2EC012302C0CA2FA0029AAE8 /* 1_HelloView.swift in Sources */,
 				2EC0122E2C0CA2FA0029AAE8 /* W2WMatchApp.swift in Sources */,
 				2EC012432C10F3570029AAE8 /* starView.swift in Sources */,

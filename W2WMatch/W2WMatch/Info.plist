@@ -10,6 +10,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>FelidaeFont.ttf</string>
+		<string>PoiretOne-Regular.ttf</string>
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>

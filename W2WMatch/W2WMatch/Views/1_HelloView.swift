@@ -12,19 +12,18 @@ struct HelloView: View {
         NavigationView {
             VStack {
                 Image("helloArms")
-                    .padding(.bottom, 30)
+                    .padding(.top, 88.0)
                 
-                VStack {
-                   Text("Добро пожаловать в")
-                        .foregroundColor(Color("W2wBlueColor"))
-                    Text("сервис коллабораций")
-                        .foregroundColor(Color("W2wOrangeColor"))
-                    Text("для брендов")
-                        .foregroundColor(Color("W2wBlueColor"))
-                }
-                .font(.custom("Felidae-Regular", size: 38))
+                
+                   
+                Text("Добро пожаловать в сервис коллабораций для брендов")
+                    .foregroundColor(Color("W2wBlueColor"))
+                    .font(.custom("PoiretOne-Regular", size: 35))
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 36.0)
+                    .padding(.horizontal, 20)
                
-                Spacer()
+                //Spacer()
                 
                 HStack {
                     NavigationLink("Вход") {
@@ -35,7 +34,7 @@ struct HelloView: View {
                     .foregroundStyle(.white)
                     .background {
                         RoundedRectangle(cornerRadius: 15)
-                            .fill(/*@START_MENU_TOKEN@*/Color("W2wBlueColor")/*@END_MENU_TOKEN@*/)
+                            .fill(Color("W2wLightBlueColor"))
                     }
 
                     NavigationLink("Регистрация") {
@@ -45,10 +44,25 @@ struct HelloView: View {
                     .frame(width: 150.0, height: 45.0)
                     .overlay( /// apply a rounded border
                         RoundedRectangle(cornerRadius: 15)
-                            .stroke(/*@START_MENU_TOKEN@*/Color("W2wBlueColor")/*@END_MENU_TOKEN@*/, lineWidth: 2))
-                    .foregroundStyle(/*@START_MENU_TOKEN@*/Color("W2wBlueColor")/*@END_MENU_TOKEN@*/)
-                }
+                            .stroke(Color("W2wLightBlueColor"), lineWidth: 2))
+                    .foregroundStyle(Color("W2wLightBlueColor"))
+                }.padding(.top, 70.0)
                 
+                
+                
+                Spacer()
+                
+                
+                Image("Vector")
+                    .padding(.top, 8.0)
+                Text("Войти с помощью")
+                    .foregroundColor(.gray)
+                    //.foregroundStyle(Color(cgColor: CGColor(red: 12.0, green: 12.0, blue: 12.0, alpha: 1)))
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 0.0)
+                
+                Image("social")
+                    .padding(.top, 8.0)
                 Spacer()
             }
         }
