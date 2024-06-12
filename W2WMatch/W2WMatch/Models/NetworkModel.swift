@@ -13,6 +13,11 @@ enum ApiUrlChooser {
 
 class NetworkModel {
     
+    private let domen = "server.w2w"
+    
+    // Artem, uncomment next line and comment previous line
+    // private let domen = "192.168.0.67:8000"
+    
     func serverRequest(apiToUse: ApiUrlChooser, user: UserModel, completion: @escaping (Int, [String: Any])->()) {
         
         var apiUrl = ""
@@ -20,11 +25,11 @@ class NetworkModel {
         
         switch apiToUse {
         case .authorization:
-            apiUrl = "http://server.w2w/auth/jwt/create/"
+            apiUrl = "http://\(domen)/auth/jwt/create/"
             json = ["email": "\(user.email)",
                     "password": "\(user.password)"]
         case .registration:
-            apiUrl = "http://server.w2w/auth/users/"
+            apiUrl = "http://\(domen)/auth/users/"
             json = ["email": "\(user.email)",
                     "phone": "\(user.phone)",
                     "password": "\(user.password)"]
@@ -56,6 +61,7 @@ class NetworkModel {
             let responseJSON = try? JSONSerialization.jsonObject(with: data)
             guard let responseJSON = responseJSON as? [String: Any] else { return }
             
+//            print(apiUrl)
             print(responseJSON) //Code after Successfull POST Request
                 
             
@@ -75,12 +81,9 @@ class NetworkModel {
             } else {
                 
             }
-            
-            
-            print(responseJSON.keys)
-            
-            
-            print("==========    Current status code: \(httpResponse.statusCode)")
+                        
+//            print(responseJSON.keys)
+//            print("==========    Current status code: \(httpResponse.statusCode)")
             
             completion(httpResponse.statusCode, responseJSON)
         }

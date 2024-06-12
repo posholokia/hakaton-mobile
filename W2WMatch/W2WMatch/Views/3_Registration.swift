@@ -9,11 +9,8 @@ import SwiftUI
 
 struct Registration: View {
     @State private var showingAlert = false
-//    @State private var userEmail = ""
-//    @State private var userPhone = ""
-//    @State private var userPassword = ""
-//    @FocusState private var emailFieldIsFocused: Bool
-//    @FocusState private var passwordFieldIsFocused: Bool
+    @State private var errorMessage = ""
+    
     @State private var newUser = UserModel()
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -81,15 +78,15 @@ struct Registration: View {
             
             
             Button("Зарегистрировать") {
-//                print("Email: \(userEmail)  Пароль: \(userPassword)")
+                newUser.email = newUser.email.lowercased()
                 NetworkModel().serverRequest(apiToUse: .registration, user: newUser) { statusCode, serverResponse in
-                    
                     if statusCode == 201 {
                         DispatchQueue.main.async {
                             goHome()
                         }
                     }
-                    if statusCode == 401 {
+                    if statusCode == 401 || statusCode == 400 {
+                        self.errorMessage = ErrorsAnalyzer().analyzeServerResponce(serverResponce: serverResponse)
                         showingAlert = true
                     }
                 }
@@ -101,7 +98,7 @@ struct Registration: View {
                 RoundedRectangle(cornerRadius: 15)
                     .fill(/*@START_MENU_TOKEN@*/Color("W2wBlueColor")/*@END_MENU_TOKEN@*/)
             }
-            .alert("Аккаунт не найден!", isPresented: $showingAlert) {
+            .alert(errorMessage, isPresented: $showingAlert) {
                         Button("OK", role: .cancel) { }
             }
             Spacer()

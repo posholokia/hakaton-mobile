@@ -87,20 +87,16 @@ struct Autorization: View {
             
             
             Button("Войти") {
-//                print("Email: \(userEmail)  Пароль: \(userPassword)")
+                user.email = user.email.lowercased()
                 NetworkModel().serverRequest(apiToUse: .authorization, user: user) { statusCode, serverResponse in
-                    
                     if statusCode == 200 {
                         DispatchQueue.main.async {
                             goHome()
                         }
                     } 
                     if statusCode == 401 || statusCode == 400 {
+                        self.errorMessage = ErrorsAnalyzer().analyzeServerResponce(serverResponce: serverResponse)
                         showingAlert = true
-                        for key in serverResponse.keys {
-                            // переделать
-                            self.errorMessage = self.errorMessage + "\(serverResponse[key])\n"
-                        }
                     }
                 }
             }
