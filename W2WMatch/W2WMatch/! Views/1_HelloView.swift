@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct HelloView: View {
+    
     var body: some View {
         NavigationView {
             VStack {
                 Image("helloArms")
                     .padding(.top, 88.0)
                 
-                
-                   
                 Text("Добро пожаловать в сервис коллабораций для брендов")
                     .foregroundColor(Color("W2wBlueColor"))
                     .font(.custom("PoiretOne-Regular", size: 35))
@@ -27,7 +26,7 @@ struct HelloView: View {
                 
                 HStack {
                     NavigationLink("Вход") {
-                        Autorization()
+                        LoginScreen()
                     }
                     .padding()
                     .frame(width: 150.0, height: 45.0)
@@ -38,7 +37,7 @@ struct HelloView: View {
                     }
 
                     NavigationLink("Регистрация") {
-                        Registration()
+                        RegisterScreen()
                     }
                     .padding()
                     .frame(width: 150.0, height: 45.0)

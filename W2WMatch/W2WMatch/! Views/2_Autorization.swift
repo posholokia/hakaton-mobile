@@ -11,12 +11,11 @@ struct Autorization: View {
     
     //@State private var willMoveToNextScreen = false
     @State private var showingAlert = false
+    @State private var errorMessage = ""
+    
     @State var showingDetail = false
-//    @State private var userEmail = ""
-//    @State private var userPassword = ""
     @State private var user = UserModel()
     
-    @State private var errorMessage = ""
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -75,7 +74,7 @@ struct Autorization: View {
                         .stroke(Color("W2wLightBlueColor"), lineWidth: 2))
                 .foregroundStyle(Color("W2wLightBlueColor"))
             
-            TextField("Пароль", text: $user.password)
+            SecureField("Пароль", text: $user.password)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .padding()
@@ -91,6 +90,7 @@ struct Autorization: View {
                 NetworkModel().serverRequest(apiToUse: .authorization, user: user) { statusCode, serverResponse in
                     if statusCode == 200 {
                         DispatchQueue.main.async {
+                            //UserDefaults.standard.set(user, forKey: "UserInfo")
                             goHome()
                         }
                     } 

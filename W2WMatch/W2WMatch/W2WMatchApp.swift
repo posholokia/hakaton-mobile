@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct W2WMatchApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            HelloView()
+            ContentView()
         }
     }
 }

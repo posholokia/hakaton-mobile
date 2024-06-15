@@ -19,7 +19,7 @@ struct ErrorsAnalyzer {
     private let errorsDictionary = ["password": "Пароль не должен быть пустым!",
                                     "email": "Email не должен быть пустым!",
                                     "phone": "Телефон не должен быть пустым!"]
-    private let errorsArray = ["Это поле не может быть пустым."]
+    private let errorsArray = ["Это поле не может быть пустым.", "This field may not be blank."]
     
     func analyzeServerResponce (serverResponce: [String: Any]) -> String {
         var errorMessage = ""

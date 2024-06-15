@@ -71,10 +71,26 @@ class NetworkModel {
             if httpResponse.statusCode == 200 {
                 if let refreshToken = responseJSON["refresh"] as? String {
                     user.refreshToken = refreshToken
+                    
+                    guard let expTokensTime = try? TokenDecoder.shared.decode(jwtToken: refreshToken) else { return }
+                    
+                    print("Exp time: ", expTokensTime)
                 }
                 
                 if let accessToken = responseJSON["access"] as? String {
                     user.accessToken = accessToken
+                    
+                    guard let expTokensTime = try? TokenDecoder.shared.decode(jwtToken: accessToken) else { return }
+                    
+                    print("Exp time: ", expTokensTime)
+//                    print("=======      Access token!  =======")
+//                    if let decodedToken = try? self.decode(jwtToken: accessToken) {
+//                        print(decodedToken)
+//                        guard let decodedToken = decodedToken as? [String: Any] else { return }
+//                        if let expTokensTime = decodedToken["exp"] as? String {
+//                            print("Exp time: ", expTokensTime)
+//                        }
+//                    }
                 }
                 
                 //print("access Token: \(user.accessToken)        refresh Token: \(user.refreshToken)")
