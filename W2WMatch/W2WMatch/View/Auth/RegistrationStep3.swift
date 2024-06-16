@@ -9,7 +9,8 @@ import SwiftUI
 
 struct RegistrationStep3: View {
     
-    @State var user: AutorizedUser
+    @EnvironmentObject var mainVm: MainViewModel
+    @State var user = AutorizedUser()
     
     var body: some View {
         GeometryReader { geometry in
@@ -116,19 +117,10 @@ struct RegistrationStep3: View {
                     //.frame(width: 358)
                     
 
-//                    Button("Далее") {
-//
-//                    }
-//                    .frame(width: 255.0, height: 45.0)
-//                    .foregroundStyle(.white)
-//                    .background {
-//                        RoundedRectangle(cornerRadius: 15)
-//                            .fill(Color("W2wLightBlueColor"))
-//                    }
-//                    .padding(.top)
-                    
-                    NavigationLink(destination: MainPageView(user: user)) {
-                        Text("Далее")
+                    Button("Далее") {
+                        // нужно будет отправить на сервер инфу с данными
+                        mainVm.user = user
+                        mainVm.successfullRegistration = false
                     }
                     .frame(width: 255.0, height: 45.0)
                     .foregroundStyle(.white)
@@ -137,6 +129,17 @@ struct RegistrationStep3: View {
                             .fill(Color("W2wLightBlueColor"))
                     }
                     .padding(.top)
+                    
+//                    NavigationLink(destination: MainPageView(user: user)) {
+//                        Text("Далее")
+//                    }
+//                    .frame(width: 255.0, height: 45.0)
+//                    .foregroundStyle(.white)
+//                    .background {
+//                        RoundedRectangle(cornerRadius: 15)
+//                            .fill(Color("W2wLightBlueColor"))
+//                    }
+//                    .padding(.top)
                     
                     
                     Image("Vector")

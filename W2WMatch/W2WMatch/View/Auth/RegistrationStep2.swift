@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct RegistrationStep2: View {
-    @State var name = ""
-    @State var tgNic = ""
     @State var user = AutorizedUser()
     
     var body: some View {

@@ -9,7 +9,7 @@ import Foundation
 
 enum Endpoint {
     
-    static let baseURL: String  = "http://server.w2w/"
+    static let baseURL: String  = "http://localhost/"
 
     case register
     case login

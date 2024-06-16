@@ -16,6 +16,8 @@ class MainViewModel: ObservableObject {
     @Published var registerPending = false
     @Published var successfullRegistration = false
     
+    @Published var user: AutorizedUser?
+    
 //    @Published var devsProgress: LoadingState = .notStarted
 //    @Published var developers: [Developer] = []
     

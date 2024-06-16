@@ -19,7 +19,7 @@ struct ContentView: View {
                 if mainVm.successfullRegistration {
                     RegistrationStep2()
                 } else {
-                    MainScreen()
+                    MainTabView()
                 }
             }
         }
