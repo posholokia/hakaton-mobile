@@ -37,10 +37,20 @@ struct AutorizedUser {
     var name = ""
     var telegrammNik = ""
     var myBrand: UsersBrand = UsersBrand()
+    var yourselfinfo: AboutUserInfo = AboutUserInfo()
 }
 
 struct UsersBrand {
     var name = ""
     var tgName = ""
     var shopLink = ""
+}
+
+struct AboutUserInfo {
+    var theme: String = ""
+    var gender: String = ""
+    var age: String = ""
+    var incomeLevel: String = ""
+    var geographic: String = ""
+    var interests: String = ""
 }

@@ -19,16 +19,11 @@ struct RegistrationStep3: View {
                     
                     Spacer()
                     
-                    
-                    
-                    Text("Расскажи о своем")
+                    Text("Расскажи о своем\nбренде")
                         .foregroundColor(Color("W2wBlueColor"))
                         .font(.custom("PoiretOne-Regular", size: 34))
                         .multilineTextAlignment(.center)
-                    Text("бренде")
-                        .foregroundColor(Color("W2wBlueColor"))
-                        .font(.custom("PoiretOne-Regular", size: 34))
-                        .multilineTextAlignment(.center)
+                        
                      
                     Spacer()
                     
@@ -117,12 +112,11 @@ struct RegistrationStep3: View {
                     //.frame(width: 358)
                     
 
-                    Button("Далее") {
-                        // нужно будет отправить на сервер инфу с данными
-                        mainVm.user = user
-                        mainVm.successfullRegistration = false
+                    NavigationLink(destination: AboutYorselfScreen(user: user)) {
+                        Text("Далее")
+                        //надо передать данные на сервер
                     }
-                    .frame(width: 255.0, height: 45.0)
+                    .frame(width: geometry.size.width - 120, height: 45.0)
                     .foregroundStyle(.white)
                     .background {
                         RoundedRectangle(cornerRadius: 15)
