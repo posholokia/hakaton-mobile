@@ -47,6 +47,8 @@
 		2EC012352C0CA2FF0029AAE8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC012342C0CA2FF0029AAE8 /* Preview Assets.xcassets */; };
 		2EC0123D2C0F133C0029AAE8 /* FelidaeFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EC0123C2C0F133C0029AAE8 /* FelidaeFont.ttf */; };
 		C5CC6FE72C1F5F3600E707E4 /* AboutYorselfScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FE62C1F5F3600E707E4 /* AboutYorselfScreen.swift */; };
+		C5CC6FE92C1FFDA100E707E4 /* InterectionFormatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FE82C1FFDA100E707E4 /* InterectionFormatScreen.swift */; };
+		C5CC6FEB2C200BE300E707E4 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FEA2C200BE300E707E4 /* TableRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,8 @@
 		2EC0123B2C0E53E70029AAE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2EC0123C2C0F133C0029AAE8 /* FelidaeFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FelidaeFont.ttf; sourceTree = "<group>"; };
 		C5CC6FE62C1F5F3600E707E4 /* AboutYorselfScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutYorselfScreen.swift; sourceTree = "<group>"; };
+		C5CC6FE82C1FFDA100E707E4 /* InterectionFormatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterectionFormatScreen.swift; sourceTree = "<group>"; };
+		C5CC6FEA2C200BE300E707E4 /* TableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 				2E81F4952C1DE3760032BFC7 /* RegistrationStep2.swift */,
 				2E81F4992C1DF53E0032BFC7 /* RegistrationStep3.swift */,
 				C5CC6FE62C1F5F3600E707E4 /* AboutYorselfScreen.swift */,
+				C5CC6FE82C1FFDA100E707E4 /* InterectionFormatScreen.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 				2E81F46B2C1DC4580032BFC7 /* Auth */,
 				2E81F46D2C1DC4580032BFC7 /* Components */,
 				2E81F4702C1DC4580032BFC7 /* Main */,
+				C5CC6FEA2C200BE300E707E4 /* TableRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 				2E81F4A22C1F199C0032BFC7 /* ChatsView.swift in Sources */,
 				2E2A787C2C138FBC003C1836 /* NetworkModel.swift in Sources */,
 				2E81F49E2C1F19300032BFC7 /* MatchView.swift in Sources */,
+				C5CC6FEB2C200BE300E707E4 /* TableRow.swift in Sources */,
 				2E81F49C2C1F191B0032BFC7 /* PartnersView.swift in Sources */,
 				2E81F4A02C1F19760032BFC7 /* TabView.swift in Sources */,
 				2E2A787E2C1397C9003C1836 /* AlertServise.swift in Sources */,
@@ -347,6 +354,7 @@
 				2E81F4942C1DC51B0032BFC7 /* ContentView.swift in Sources */,
 				2E81F48A2C1DC4590032BFC7 /* AuthBody.swift in Sources */,
 				2E81F4832C1DC4590032BFC7 /* TokenDecoder.swift in Sources */,
+				C5CC6FE92C1FFDA100E707E4 /* InterectionFormatScreen.swift in Sources */,
 				2E81F4892C1DC4590032BFC7 /* !Developer.swift in Sources */,
 				2E81F4822C1DC4590032BFC7 /* Result.swift in Sources */,
 				2E81F4A42C1F19AE0032BFC7 /* ProfileView.swift in Sources */,
