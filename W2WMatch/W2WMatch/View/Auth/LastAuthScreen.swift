@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LastAuthScreen: View {
     @State var user = AutorizedUser()
+    let brandView = BrandPictureSelecterView(photoItem: GalleryItem())
     let options = ["Рост продаж", "Новая аудитория и охваты в соцсетях", "Повышение узнаваемоести и лояльности", "Совместное творчество и усиление навыков команды", "Другое"]
     
     var body: some View {
@@ -33,19 +34,11 @@ struct LastAuthScreen: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .fixedSize(horizontal: false, vertical: true)
                 
+                brandView
                
-                Button("Далее") {
-                    //отправка данных на сервер
-                }
-                .frame(width: geometry.size.width - 120, height: 45.0)
-                .foregroundStyle(.white)
-                .background {
-                    RoundedRectangle(cornerRadius: 15)
-                        .fill(Color("W2wLightBlueColor"))
-                }
-                .padding(.top)
+              
                 Image("Vector")
-                    .padding(.top, 20)
+                    .padding(.top, 130)
             }
             
             .frame(width: geometry.size.width - 120, height: geometry.size.height)

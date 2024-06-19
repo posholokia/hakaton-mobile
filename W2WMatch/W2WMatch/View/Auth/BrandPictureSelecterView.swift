@@ -6,13 +6,61 @@
 //
 
 import SwiftUI
+import PhotosUI
+
+
+
 
 struct BrandPictureSelecterView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        @State private var photosPickerItem: PhotosPickerItem?
+      @ObservedObject var photoItem: GalleryItem
+      @MainActor @State private var isLoading = false
+      
+      let filter: PHPickerFilter = .not(.videos)
+
+      var body: some View {
+          ZStack {
+              PhotosPicker(selection: $photosPickerItem, matching: filter) {
+                Label("", image: "downloadImageView")
+              }
+              
+              PhotoView(photoData: photoItem.PhotoData)
+                  .padding()
+              
+              if isLoading {
+                ProgressView()
+                  .tint(.accentColor)
+              }
+              
+             
+          }
+          .padding()
+          .onChange(of: photosPickerItem) { selectedPhotosPickerItem in
+            guard let selectedPhotosPickerItem else {
+              return
+            }
+
+            Task {
+              isLoading = true
+              await updatePhotosPickerItem(with: selectedPhotosPickerItem)
+              isLoading = false
+            }
+          }
+      }
+      
+      // MARK: Private Functions
+      private func updatePhotosPickerItem(with item: PhotosPickerItem) async {
+        photosPickerItem = item
+
+        if let photoData = try? await item.loadTransferable(type: Data.self) {
+          photoItem.PhotoData = photoData
+            
+      
+        }
+      }
+
 }
 
 #Preview {
-    BrandPictureSelecterView()
+    BrandPictureSelecterView(photoItem: GalleryItem())
 }
