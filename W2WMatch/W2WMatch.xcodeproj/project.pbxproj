@@ -160,7 +160,6 @@
 				C5CC6FEC2C22AD3C00E707E4 /* VeryImportantScreen.swift */,
 				C5CC6FEE2C22B3CE00E707E4 /* LastAuthScreen.swift */,
                 
-
 			);
 			path = Auth;
 			sourceTree = "<group>";
