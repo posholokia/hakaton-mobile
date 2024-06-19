@@ -135,9 +135,9 @@ struct AboutYorselfScreen: View {
                 .stroke(Color("FrameRegistration"), lineWidth: 2))
                 .foregroundStyle(Color("FrameRegistration"))
                 
-                Button("Далее") {
-                    mainVm.user = user
-                    mainVm.successfullRegistration = false //тут все так??
+                NavigationLink(destination: InterectionFormatScreen(user: user)) {
+                    Text("Далее")
+                    //надо передать данные на сервер
                 }
                 .frame(width: geometry.size.width - 120, height: 45.0)
                 .foregroundStyle(.white)
@@ -145,6 +145,12 @@ struct AboutYorselfScreen: View {
                     RoundedRectangle(cornerRadius: 15)
                         .fill(Color("W2wLightBlueColor"))
                 }
+                
+//                Button("Далее") {
+//                    mainVm.user = user
+//                    mainVm.successfullRegistration = false //тут все так??
+//                }
+                
                 .padding(.top)
                 Image("Vector")
                     .padding(.top, 38.0)
@@ -157,5 +163,5 @@ struct AboutYorselfScreen: View {
 }
 
 #Preview {
-    AboutYorselfScreen()
+    AboutYorselfScreen(user: AutorizedUser())
 }

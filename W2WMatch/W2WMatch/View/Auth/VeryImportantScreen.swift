@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct InterectionFormatScreen: View {
+struct VeryImportantScreen: View {
     @State var user = AutorizedUser()
-    let options = ["Не определилась с форматом, но готова к обсуждению", "Совместный прямой эфир", "Совместный прямой reels", "Совместный прямой пост", "Выпустить совместный продукт", "Провести совместно мероприятие"]
+    let options = ["Рост продаж", "Новая аудитория и охваты в соцсетях", "Повышение узнаваемоести и лояльности", "Совместное творчество и усиление навыков команды", "Другое"]
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                Text("Очень хорошо! Осталось всего пару вопросов")
+                Text("И последний, самый важный")
                     .foregroundColor(Color("W2wBlueColor"))
                     .font(.custom("PoiretOne-Regular", size: 34))
                     .multilineTextAlignment(.center)
@@ -24,7 +24,7 @@ struct InterectionFormatScreen: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.bottom, 18)
                 
-                Text("Какие форматы взаимодействия вас интересуют?")
+                Text("Цель коллаборации")
                     .font(Font.custom("Manrope", size: 14))
                     .tracking(0.28)
                     .foregroundColor(Color("W2wBlueColor"))
@@ -69,7 +69,7 @@ struct InterectionFormatScreen: View {
 
 
 #Preview {
-    InterectionFormatScreen(user: AutorizedUser())
+    VeryImportantScreen(user: AutorizedUser())
 }
 
 

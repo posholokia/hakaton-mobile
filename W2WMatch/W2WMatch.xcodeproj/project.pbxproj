@@ -49,6 +49,7 @@
 		C5CC6FE72C1F5F3600E707E4 /* AboutYorselfScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FE62C1F5F3600E707E4 /* AboutYorselfScreen.swift */; };
 		C5CC6FE92C1FFDA100E707E4 /* InterectionFormatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FE82C1FFDA100E707E4 /* InterectionFormatScreen.swift */; };
 		C5CC6FEB2C200BE300E707E4 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FEA2C200BE300E707E4 /* TableRow.swift */; };
+		C5CC6FED2C22AD3C00E707E4 /* VeryImportantScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FEC2C22AD3C00E707E4 /* VeryImportantScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		C5CC6FE62C1F5F3600E707E4 /* AboutYorselfScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutYorselfScreen.swift; sourceTree = "<group>"; };
 		C5CC6FE82C1FFDA100E707E4 /* InterectionFormatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterectionFormatScreen.swift; sourceTree = "<group>"; };
 		C5CC6FEA2C200BE300E707E4 /* TableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
+		C5CC6FEC2C22AD3C00E707E4 /* VeryImportantScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeryImportantScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				2E81F4992C1DF53E0032BFC7 /* RegistrationStep3.swift */,
 				C5CC6FE62C1F5F3600E707E4 /* AboutYorselfScreen.swift */,
 				C5CC6FE82C1FFDA100E707E4 /* InterectionFormatScreen.swift */,
+				C5CC6FEC2C22AD3C00E707E4 /* VeryImportantScreen.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				2E2A787E2C1397C9003C1836 /* AlertServise.swift in Sources */,
 				2E81F4912C1DC4590032BFC7 /* UserDefaultWorker.swift in Sources */,
 				2E81F48F2C1DC4590032BFC7 /* Errors.swift in Sources */,
+				C5CC6FED2C22AD3C00E707E4 /* VeryImportantScreen.swift in Sources */,
 				2E81F4812C1DC4590032BFC7 /* Requester.swift in Sources */,
 				2E81F4902C1DC4590032BFC7 /* Extensions.swift in Sources */,
 				2E81F47F2C1DC4590032BFC7 /* !LoadingState.swift in Sources */,

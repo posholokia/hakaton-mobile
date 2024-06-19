@@ -21,7 +21,7 @@ struct TableRow: View {
                     .foregroundColor(Color("W2wBlueColor"))
                     .padding(.leading, 0)
                     .fixedSize(horizontal: false, vertical: true)
-                    .font(Font.custom("Manrope", size: 14))
+                    .font(Font.custom("Manrope", size: 14).weight(.ultraLight))
             
             Spacer()
             
@@ -46,7 +46,7 @@ struct CheckBoxToggelStyle: ToggleStyle {
         }) {
             HStack {
                 Image(systemName: configuration.isOn ? "checkmark.square" : "square")
-                    .foregroundColor(configuration.isOn ? Color("FrameRegistration") : Color("FrameRegistration"))
+                    .foregroundColor(configuration.isOn ? Color("CheckGreen") : Color("FrameRegistration"))
                     .padding(.leading, 5)
                 configuration.label
             }
