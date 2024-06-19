@@ -50,6 +50,7 @@
 		C5CC6FE92C1FFDA100E707E4 /* InterectionFormatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FE82C1FFDA100E707E4 /* InterectionFormatScreen.swift */; };
 		C5CC6FEB2C200BE300E707E4 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FEA2C200BE300E707E4 /* TableRow.swift */; };
 		C5CC6FED2C22AD3C00E707E4 /* VeryImportantScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FEC2C22AD3C00E707E4 /* VeryImportantScreen.swift */; };
+		C5CC6FEF2C22B3CE00E707E4 /* LastAuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FEE2C22B3CE00E707E4 /* LastAuthScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		C5CC6FE82C1FFDA100E707E4 /* InterectionFormatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterectionFormatScreen.swift; sourceTree = "<group>"; };
 		C5CC6FEA2C200BE300E707E4 /* TableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
 		C5CC6FEC2C22AD3C00E707E4 /* VeryImportantScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeryImportantScreen.swift; sourceTree = "<group>"; };
+		C5CC6FEE2C22B3CE00E707E4 /* LastAuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastAuthScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				C5CC6FE62C1F5F3600E707E4 /* AboutYorselfScreen.swift */,
 				C5CC6FE82C1FFDA100E707E4 /* InterectionFormatScreen.swift */,
 				C5CC6FEC2C22AD3C00E707E4 /* VeryImportantScreen.swift */,
+				C5CC6FEE2C22B3CE00E707E4 /* LastAuthScreen.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				2E81F48A2C1DC4590032BFC7 /* AuthBody.swift in Sources */,
 				2E81F4832C1DC4590032BFC7 /* TokenDecoder.swift in Sources */,
 				C5CC6FE92C1FFDA100E707E4 /* InterectionFormatScreen.swift in Sources */,
+				C5CC6FEF2C22B3CE00E707E4 /* LastAuthScreen.swift in Sources */,
 				2E81F4892C1DC4590032BFC7 /* !Developer.swift in Sources */,
 				2E81F4822C1DC4590032BFC7 /* Result.swift in Sources */,
 				2E81F4A42C1F19AE0032BFC7 /* ProfileView.swift in Sources */,
