@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct VeryImportantScreen: View {
+    
     @State var user = AutorizedUser()
+    @EnvironmentObject var mainVm: MainViewModel
+    
     let options = ["Рост продаж", "Новая аудитория и охваты в соцсетях", "Повышение узнаваемоести и лояльности", "Совместное творчество и усиление навыков команды", "Другое"]
     
     var body: some View {
@@ -38,12 +41,13 @@ struct VeryImportantScreen: View {
                     .foregroundColor(Color("SecondaryText"))
                     .padding(.bottom, 24)
                     .multilineTextAlignment(.leading)
-                
                     .frame(maxWidth: .infinity, alignment: .leading)
+                
                 ForEach(options, id: \.self) { option in
                     TableRow(text: option)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
+                
                 Button("Далее") {
                     //отправка данных на сервер
                 }
@@ -54,16 +58,15 @@ struct VeryImportantScreen: View {
                         .fill(Color("W2wLightBlueColor"))
                 }
                 .padding(.top)
+                
                 Image("Vector")
                     .padding(.top, 20)
             }
-            
             .frame(width: geometry.size.width - 120, height: geometry.size.height)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        
         Spacer()
-        
-        
     }
 }
 
