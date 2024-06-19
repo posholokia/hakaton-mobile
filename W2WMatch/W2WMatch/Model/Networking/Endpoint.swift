@@ -9,11 +9,12 @@ import Foundation
 
 enum Endpoint {
     
-    static let baseURL: String  = "http://localhost:8000/"
+    static let baseURL: String  = "http://localhost/"
 
     case register
     case login
     case refreshTokens
+    case myBrand
 //    case getDevelopers
     
     func path() -> String {
@@ -24,6 +25,8 @@ enum Endpoint {
             return "auth/jwt/create/"
         case .refreshTokens:
             return "auth/jwt/refresh/"
+        case .myBrand:
+            return "api/v1/brand/"
 //        case .getDevelopers:
 //            return "api/get_devs"
         }
