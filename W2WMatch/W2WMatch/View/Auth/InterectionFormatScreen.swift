@@ -44,8 +44,9 @@ struct InterectionFormatScreen: View {
                     TableRow(text: option)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                Button("Далее") {
-                    //отправка данных на сервер
+                NavigationLink(destination: VeryImportantScreen(user: user)) {
+                    Text("Далее")
+                    //надо передать данные на сервер
                 }
                 .frame(width: geometry.size.width - 120, height: 45.0)
                 .foregroundStyle(.white)

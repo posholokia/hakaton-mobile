@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct PhotoView: View {
+    
+    var view: LogoLoadScreen = LogoLoadScreen()
+    
     var photoData: Data?
     @State var text = ""
+    
+    
     var body: some View {
         if let photoData, let uiImage = UIImage(data: photoData) {
             let imageSize = 80.00
@@ -49,6 +54,9 @@ struct PhotoView: View {
                 .fill(Color("W2wLightBlueColor"))
         }
         .offset(y: 120)
+        NavigationLink(destination: LogoLoadScreen()){
+            
+        }
     }
 }
 
