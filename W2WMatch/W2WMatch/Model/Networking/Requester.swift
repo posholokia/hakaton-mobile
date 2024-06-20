@@ -34,6 +34,7 @@ class Requester {
                              contentType: String = "application/json",
                              refreshTokens: Bool = false,
                              ignoreJwtAuth: Bool = false) -> URLRequest {
+        
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData)
         request.httpMethod = method
         request.addValue(contentType, forHTTPHeaderField: "Content-Type")
@@ -43,11 +44,11 @@ class Requester {
             request.addValue("Bearer \(refreshToken.token)", forHTTPHeaderField: "Authorization")
         } else if !accessToken.token.isEmpty && !ignoreJwtAuth {
             request.addValue("Bearer \(accessToken.token)", forHTTPHeaderField: "Authorization")
-            
         }
         return request
     }
     
+    // запрос к апи для обновления токенов
     private func formRefreshTokensRequest() -> URLRequest {
         return formRequest(url: Endpoint.refreshTokens.absoluteURL, refreshTokens: true)
     }
@@ -58,6 +59,14 @@ class Requester {
         return newRequest
     }
     
+    // проверка валидности токенов
+    private var needReAuth: Bool {
+        let current = Date().timestampMillis()
+        let expires = accessToken.expiresAt
+        return current + Requester.ACCESS_TOKEN_LIFE_THRESHOLD_SECONDS > expires
+    }
+    
+    // MARK: - handle... эти методы при успешной авторизации или регистрации обновляют jwt токены
     private func handleAuthResponse(response: Result<ResponseAuthTokens>, onResult: @escaping (Result<ResponseAuthTokens>) -> Void) {
         if case .success(let serverResponse) = response {
             self.onTokensRefreshed(tokens: serverResponse.getTokensInfo())
@@ -66,7 +75,7 @@ class Requester {
     }
     
     private func handleRegisterResponse(authBody: AuthBody, response: Result<ResponseRegister>, onResult: @escaping (Result<ResponseRegister>) -> Void) {
-        if case .success(let serverResponse) = response {
+        if case .success(_) = response {
             
             login(authBody: authBody) { result in
                 if case .success(let authResponse) = result {
@@ -95,17 +104,27 @@ class Requester {
         }
     }
     
+    func brandCreate(authBody: CreateBrandRequestBody, onResult: @escaping (Result<CreateBrandResponse>) -> Void) {
+        let url = Endpoint.myBrand.absoluteURL
+        let body = try! JSONEncoder().encode(authBody) //TODO: handle serializaztion error
+        print("=================   http Request Body    ===================")
+        print(body)
+        print("=========================  end  ============================")
+        let request = formRequest(url: url, data: body, method: "POST")
+        self.request(request: request, onResult: onResult)
+    }
+    
+    func getAnketa(onResult: @escaping (Result<[AnketaElement]>) -> Void) {
+        let url = Endpoint.getAnketa.absoluteURL
+        let request = formRequest(url: url, data: Data(), method: "GET")
+        self.request(request: request, onResult: onResult)
+    }
+    
 //    func getDevelopers(onResult: @escaping (Result<[Developer]>) -> Void) {
 //        let url = Endpoint.getDevelopers.absoluteURL
 //        let request = formRequest(url: url, data: Data(), method: "GET")
 //        self.request(request: request, onResult: onResult)
 //    }
-    
-    private var needReAuth: Bool {
-        let current = Date().timestampMillis()
-        let expires = accessToken.expiresAt
-        return current + Requester.ACCESS_TOKEN_LIFE_THRESHOLD_SECONDS > expires
-    }
     
     func request<T: Decodable>(request: URLRequest, onResult: @escaping (Result<T>) -> Void) {
         print("request called")
@@ -198,6 +217,17 @@ class Requester {
                 }
                 return
             }
+            
+            
+            print("=================   http Response Body    ===================")
+            let responseJSON = try? JSONSerialization.jsonObject(with: data)
+            guard let responseJSON = responseJSON as? [String: Any] else { return }
+            
+//            print(apiUrl)
+            print(responseJSON) //Code after Successfull POST Request
+            print("=========================  end  ============================")
+            
+            
             print("respone code: \(httpResponse.statusCode)")
             if httpResponse.isSuccessful() {
                 let responseBody: Result<T> = self.parseResponse(data: data)
@@ -210,6 +240,7 @@ class Requester {
         task.resume()
     }
     
+    // обработчик ответа от апи
     private func parseResponse<T: Decodable>(data: Data) -> Result<T> {
         do {
             return .success(try JSONDecoder().decode(T.self, from: data))
@@ -219,6 +250,7 @@ class Requester {
         }
     }
     
+    // обработчик ответа ошибки от апи
     private func parseError<T>(data: Data) -> Result<T> {
         print("parsing error")
         do {

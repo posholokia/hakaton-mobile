@@ -10,7 +10,6 @@ import SwiftUI
 struct LastAuthScreen: View {
     @State var user = AutorizedUser()
     let brandView = BrandPictureSelecterView(photoItem: GalleryItem())
-    let options = ["Рост продаж", "Новая аудитория и охваты в соцсетях", "Повышение узнаваемоести и лояльности", "Совместное творчество и усиление навыков команды", "Другое"]
     
     var body: some View {
         GeometryReader { geometry in
@@ -36,17 +35,13 @@ struct LastAuthScreen: View {
                 
                 brandView
                
-              
                 Image("Vector")
                     .padding(.top, 130)
             }
-            
             .frame(width: geometry.size.width - 120, height: geometry.size.height)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         Spacer()
-        
-        
     }
 }
 

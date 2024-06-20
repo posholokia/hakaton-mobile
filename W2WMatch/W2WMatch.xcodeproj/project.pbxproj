@@ -10,6 +10,9 @@
 		2E2A787C2C138FBC003C1836 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2A787B2C138FBC003C1836 /* NetworkModel.swift */; };
 		2E2A787E2C1397C9003C1836 /* AlertServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2A787D2C1397C9003C1836 /* AlertServise.swift */; };
 		2E2A78822C143B20003C1836 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2A78812C143B20003C1836 /* UserModel.swift */; };
+		2E43387B2C24846F00897B48 /* Anketa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E43387A2C24846F00897B48 /* Anketa.swift */; };
+		2E43387D2C248A5600897B48 /* CreateBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E43387C2C248A5600897B48 /* CreateBrand.swift */; };
+		2E43387F2C24929500897B48 /* image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E43387E2C24929500897B48 /* image.swift */; };
 		2E81F4622C1DC43C0032BFC7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81F4602C1DC43C0032BFC7 /* MainViewModel.swift */; };
 		2E81F47F2C1DC4590032BFC7 /* !LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81F4632C1DC4580032BFC7 /* !LoadingState.swift */; };
 		2E81F4802C1DC4590032BFC7 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E81F4642C1DC4580032BFC7 /* Endpoint.swift */; };
@@ -60,6 +63,9 @@
 		2E2A787B2C138FBC003C1836 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		2E2A787D2C1397C9003C1836 /* AlertServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertServise.swift; sourceTree = "<group>"; };
 		2E2A78812C143B20003C1836 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		2E43387A2C24846F00897B48 /* Anketa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anketa.swift; sourceTree = "<group>"; };
+		2E43387C2C248A5600897B48 /* CreateBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBrand.swift; sourceTree = "<group>"; };
+		2E43387E2C24929500897B48 /* image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = image.swift; sourceTree = "<group>"; };
 		2E81F4602C1DC43C0032BFC7 /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		2E81F4632C1DC4580032BFC7 /* !LoadingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "!LoadingState.swift"; sourceTree = "<group>"; };
 		2E81F4642C1DC4580032BFC7 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				2E81F4602C1DC43C0032BFC7 /* MainViewModel.swift */,
+				2E43387E2C24929500897B48 /* image.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -198,7 +205,6 @@
 				2E81F46B2C1DC4580032BFC7 /* Auth */,
 				2E81F46D2C1DC4580032BFC7 /* Components */,
 				2E81F4702C1DC4580032BFC7 /* Main */,
-				C5CC6FFC2C23582E00E707E4 /* GalleryItem.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +220,9 @@
 				2E81F4762C1DC4580032BFC7 /* TokensInfo.swift */,
 				2E81F4772C1DC4580032BFC7 /* User.swift */,
 				2E81F4972C1DE6020032BFC7 /* AuthAndRegistrationResponseModels.swift */,
+				C5CC6FFC2C23582E00E707E4 /* GalleryItem.swift */,
+				2E43387A2C24846F00897B48 /* Anketa.swift */,
+				2E43387C2C248A5600897B48 /* CreateBrand.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -344,7 +353,9 @@
 			files = (
 				2E81F4852C1DC4590032BFC7 /* RegisterScreen.swift in Sources */,
 				2E8C0AE12C14DA6B00A19FB4 /* ErrorsModel.swift in Sources */,
+				2E43387D2C248A5600897B48 /* CreateBrand.swift in Sources */,
 				2E81F49A2C1DF53E0032BFC7 /* RegistrationStep3.swift in Sources */,
+				2E43387B2C24846F00897B48 /* Anketa.swift in Sources */,
 				2EC012302C0CA2FA0029AAE8 /* HelloView.swift in Sources */,
 				2E81F48D2C1DC4590032BFC7 /* TokensInfo.swift in Sources */,
 				2EC0122E2C0CA2FA0029AAE8 /* W2WMatchApp.swift in Sources */,
@@ -369,6 +380,7 @@
 				2E81F4902C1DC4590032BFC7 /* Extensions.swift in Sources */,
 				2E81F47F2C1DC4590032BFC7 /* !LoadingState.swift in Sources */,
 				2E81F4942C1DC51B0032BFC7 /* ContentView.swift in Sources */,
+				2E43387F2C24929500897B48 /* image.swift in Sources */,
 				2E81F48A2C1DC4590032BFC7 /* AuthBody.swift in Sources */,
 				2E81F4832C1DC4590032BFC7 /* TokenDecoder.swift in Sources */,
 				C5CC6FE92C1FFDA100E707E4 /* InterectionFormatScreen.swift in Sources */,

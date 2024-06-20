@@ -15,6 +15,7 @@ enum Endpoint {
     case login
     case refreshTokens
     case myBrand
+    case getAnketa
 //    case getDevelopers
     
     func path() -> String {
@@ -27,6 +28,8 @@ enum Endpoint {
             return "auth/jwt/refresh/"
         case .myBrand:
             return "api/v1/brand/"
+        case .getAnketa:
+            return "api/v1/questionnaire/"
 //        case .getDevelopers:
 //            return "api/get_devs"
         }
