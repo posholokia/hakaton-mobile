@@ -29,7 +29,6 @@ class MainViewModel: ObservableObject {
                                                           formats: [RequestQuestionType(text: "Совместный reels", question: 17)],
                                                           collaborationInterest: [RequestQuestionType(text: "Я открыта к экспериментам и категория партнера мне не важна", question: 19)],
                                                           tgNickname: "@Valentin",
-                                                          phone: "Delete me",
                                                           brandNamePos: "Valenki",
                                                           instBrandURL: "inst://valenochki",
                                                           brandSiteURL: "http://www.valenochki.ru",
@@ -43,8 +42,7 @@ class MainViewModel: ObservableObject {
                                                           logo: image64,
                                                           photo: image64,
                                                           productPhoto: image64,
-                                                          fullname: "Валентин Сидоров",
-                                                          email: "test@bk.ru")
+                                                          fullname: "Валентин Сидоров")
 //    @Published var devsProgress: LoadingState = .notStarted
 //    @Published var developers: [Developer] = []
     
@@ -54,9 +52,11 @@ class MainViewModel: ObservableObject {
         let refreshToken = UserDefaultsWorker.shared.getRefreshToken()
         if !refreshToken.token.isEmpty && refreshToken.expiresAt > Date().timestampMillis() {
             showAuthContainer = false
+            
+//        успешно создался бренд
+//        self.createBrand(authBody: brandAuthBody)
+//        self.getAnketa()
         }
-        // успешно создался бренд
-        // self.createBrand(authBody: brandAuthBody)
     }
     
     func logout() {
@@ -112,8 +112,6 @@ class MainViewModel: ObservableObject {
                         // show RegistrationStep2()
                         self.successfullRegistration = true
                         self.showAuthContainer = false
-                        
-                        self.getAnketa()
                     }
                 case .serverError(let err):
                     alert = IdentifiableAlert.buildForError(id: "login_server_err", message: Errors.messageFor(err: err.message))

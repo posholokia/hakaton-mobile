@@ -12,11 +12,10 @@ struct CreateBrandRequestBody: Codable {
     var category, presenceType, publicSpeaker, subsCount: RequestQuestionType
     var avgBill: RequestQuestionType
     var goals, formats, collaborationInterest: [RequestQuestionType]
-    var tgNickname, phone, brandNamePos, instBrandURL: String
+    var tgNickname, brandNamePos, instBrandURL: String
     var brandSiteURL, topics, missionStatement, targetAudience: String
     var uniqueProductIs, productDescription, problemSolving, businessGroup: String
     var logo, photo, productPhoto, fullname: String
-    var email: String
 
     enum CodingKeys: String, CodingKey {
         case category
@@ -27,7 +26,6 @@ struct CreateBrandRequestBody: Codable {
         case goals, formats
         case collaborationInterest = "collaboration_interest"
         case tgNickname = "tg_nickname"
-        case phone
         case brandNamePos = "brand_name_pos"
         case instBrandURL = "inst_brand_url"
         case brandSiteURL = "brand_site_url"
@@ -40,7 +38,7 @@ struct CreateBrandRequestBody: Codable {
         case businessGroup = "business_group"
         case logo, photo
         case productPhoto = "product_photo"
-        case fullname, email
+        case fullname
     }
 }
 
@@ -61,11 +59,11 @@ struct CreateBrandResponse: Codable {
     var goals, formats, collaborationInterest: [QuestionType]
     var subExpire: String?
     var published: Bool
-    var tgNickname, phone, brandNamePos: String
+    var tgNickname, brandNamePos: String
     var instBrandURL, brandSiteURL, topics, missionStatement: String
     var targetAudience, uniqueProductIs, productDescription, problemSolving: String
     var businessGroup, logo, photo, productPhoto: String
-    var fullname, email: String
+    var fullname: String
 
     enum CodingKeys: String, CodingKey {
         case id, user, subscription, category
@@ -78,7 +76,6 @@ struct CreateBrandResponse: Codable {
         case collaborationInterest = "collaboration_interest"
         case subExpire = "sub_expire"
         case tgNickname = "tg_nickname"
-        case phone
         case brandNamePos = "brand_name_pos"
         case instBrandURL = "inst_brand_url"
         case brandSiteURL = "brand_site_url"
@@ -91,7 +88,7 @@ struct CreateBrandResponse: Codable {
         case businessGroup = "business_group"
         case logo, photo
         case productPhoto = "product_photo"
-        case fullname, email
+        case fullname
     }
 }
 
