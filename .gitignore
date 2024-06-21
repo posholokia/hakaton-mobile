@@ -1,0 +1,13 @@
+# User-specific Xcode settings
+*.xcuserdatad
+xcuserdata/
+
+# Xcode
+.DS_Store
+*.swp
+xcuserdata/
+DerivedData/
+
+# Build artifacts
+/build/
+*.xcodeproj/xcuserdata/
