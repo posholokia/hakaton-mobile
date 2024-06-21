@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct PhotoView: View {
-    
-    var view: LogoLoadScreen = LogoLoadScreen()
-    
     var photoData: Data?
     @State var text = ""
     
@@ -28,6 +25,7 @@ struct PhotoView: View {
         } else {
             let imageSize = 100.00
             
+            
             //            Image(.downloadImageView)
             //               .foregroundColor(.accentColor)
             //               .font(.system(size: imageSize))
@@ -35,6 +33,8 @@ struct PhotoView: View {
             
         }
         Button("Готово") {
+            
+            
             if let photoData, let uiImage = UIImage(data: photoData) {
                 let img = uiImage
                 let base64 = img.base64
@@ -54,15 +54,14 @@ struct PhotoView: View {
                 .fill(Color("W2wLightBlueColor"))
         }
         .offset(y: 120)
-        NavigationLink(destination: LogoLoadScreen()){
-            
-        }
     }
+    
+    
 }
 
-#Preview {
-    PhotoView()
-}
+//#Preview {
+//    PhotoView( completion: <#() -> ()?#>)
+//}
 
 
 

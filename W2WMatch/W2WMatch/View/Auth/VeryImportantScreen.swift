@@ -49,15 +49,15 @@ struct VeryImportantScreen: View {
                 }
                 
                 NavigationLink(destination: LastAuthScreen(user: user)) {
-                                    Text("Далее")
-                                    //надо передать данные на сервер
-                                }
-                                .frame(width: geometry.size.width - 120, height: 45.0)
-                                .foregroundStyle(.white)
-                                .background {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(Color("W2wLightBlueColor"))
-                                }
+                    Text("Далее")
+                    //надо передать данные на сервер
+                }
+                .frame(width: geometry.size.width - 120, height: 45.0)
+                .foregroundStyle(.white)
+                .background {
+                    RoundedRectangle(cornerRadius: 15)
+                        .fill(Color("W2wLightBlueColor"))
+                }
                 .padding(.top)
                 
                 Image("Vector")

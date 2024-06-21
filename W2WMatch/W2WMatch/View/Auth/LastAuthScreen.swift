@@ -34,6 +34,8 @@ struct LastAuthScreen: View {
                     .fixedSize(horizontal: false, vertical: true)
                 
                 brandView
+                
+                
                
                 Image("Vector")
                     .padding(.top, 130)
