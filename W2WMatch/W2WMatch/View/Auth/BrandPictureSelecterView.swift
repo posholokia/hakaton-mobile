@@ -20,10 +20,8 @@ struct BrandPictureSelecterView: View {
             PhotosPicker(selection: $photosPickerItem, matching: filter) {
                 Label("", image: "downloadImageView")
             }
-            
             PhotoView(photoData: photoItem.PhotoData)
                 .padding()
-            
             if isLoading {
                 ProgressView()
                     .tint(.accentColor)

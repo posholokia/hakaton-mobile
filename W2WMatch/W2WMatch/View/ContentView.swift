@@ -22,6 +22,9 @@ struct ContentView: View {
                     MainTabView()
                 }
             }
+            NavigationLink(destination: LastAuthScreen(), isActive: $mainVm.navigateToNextView){
+                LoginScreen()
+            }
         }
         .background(Color.white.ignoresSafeArea())
         .navigationViewStyle(StackNavigationViewStyle())
