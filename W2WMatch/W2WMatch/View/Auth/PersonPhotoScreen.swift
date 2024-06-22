@@ -1,17 +1,15 @@
 //
-//  LastAuthScreen.swift
+//  PersonPhotoScreen.swift
 //  W2WMatch
 //
-//  Created by Игорь Крысин on 19.06.2024.
+//  Created by Игорь Крысин on 22.06.2024.
 //
 
 import SwiftUI
 
-struct LastAuthScreen: View {
-    
+struct PersonPhotoScreen: View {
     let brandView = BrandPictureSelecterView(photoItem: GalleryItem())
     var photoData: Data?
-    @State private var navigateToNextView = false
     @State var text = ""
     @State var user = AutorizedUser()
     @EnvironmentObject var mainVM: MainViewModel
@@ -30,7 +28,7 @@ struct LastAuthScreen: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.bottom, 18)
                 
-                Text("Загрузите, пожалуйста. фото, иллюстрирующее Ваш продукт (товар или услугу)")
+                Text("Загрузите, пожалуйста, ваше фото")
                     .font(Font.custom("Manrope", size: 14))
                     .tracking(0.28)
                     .foregroundColor(Color("W2wBlueColor"))
@@ -41,12 +39,10 @@ struct LastAuthScreen: View {
                 
                 brandView
                 
-                NavigationLink(destination: LogoLoadScreen(user: user), isActive: $navigateToNextView) {
-                    EmptyView()
-                }
+            
                 
                 Button("Далее") {
-                    self.navigateToNextView = true
+
                     if let photoData = photoData {
                         mainVM.handleImageNavigation(photoData: photoData) { base64String in
                             self.text = base64String
@@ -75,12 +71,6 @@ struct LastAuthScreen: View {
     }
 }
 
-
 #Preview {
-    LastAuthScreen(photoData: nil, user: AutorizedUser())
-        .environmentObject(MainViewModel())
+    PersonPhotoScreen()
 }
-
-
-
-

@@ -10,6 +10,8 @@ import SwiftUI
 struct PhotoView: View {
     var photoData: Data?
     @State var text = ""
+    @EnvironmentObject var mainVm: MainViewModel
+    
     
     
     var body: some View {
@@ -32,28 +34,11 @@ struct PhotoView: View {
             
             
         }
-        Button("Готово") {
-            
-            
-            if let photoData, let uiImage = UIImage(data: photoData) {
-                let img = uiImage
-                let base64 = img.base64
-                let rebornImg = base64?.imageFromBase64
-                guard let rebornImg = rebornImg else { return }
-                
-                self.text = img.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
-                
-                print("Base 64 string:", rebornImg)
-                print(text)
-            }
-        }
-        .frame(width: 250, height: 45.0)
-        .foregroundStyle(.white)
-        .background {
-            RoundedRectangle(cornerRadius: 15)
-                .fill(Color("W2wLightBlueColor"))
-        }
-        .offset(y: 120)
+        NavigationLink(destination: LastAuthScreen(photoData: photoData, user: AutorizedUser())) {
+                      
+                   }
+                   .disabled(photoData == nil)
+        
     }
     
     

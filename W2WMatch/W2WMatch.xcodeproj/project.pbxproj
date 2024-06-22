@@ -51,6 +51,7 @@
 		2EC0123D2C0F133C0029AAE8 /* FelidaeFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EC0123C2C0F133C0029AAE8 /* FelidaeFont.ttf */; };
 		C54381F02C24C25000DB7B27 /* LogoLoadScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54381EF2C24C25000DB7B27 /* LogoLoadScreen.swift */; };
 		C54381F42C25FFE400DB7B27 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54381F32C25FFE400DB7B27 /* PhotoModel.swift */; };
+		C54381F62C26C7FA00DB7B27 /* PersonPhotoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54381F52C26C7FA00DB7B27 /* PersonPhotoScreen.swift */; };
 		C5CC6FE72C1F5F3600E707E4 /* AboutYorselfScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FE62C1F5F3600E707E4 /* AboutYorselfScreen.swift */; };
 		C5CC6FE92C1FFDA100E707E4 /* InterectionFormatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FE82C1FFDA100E707E4 /* InterectionFormatScreen.swift */; };
 		C5CC6FEB2C200BE300E707E4 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CC6FEA2C200BE300E707E4 /* TableRow.swift */; };
@@ -108,6 +109,7 @@
 		2EC0123C2C0F133C0029AAE8 /* FelidaeFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FelidaeFont.ttf; sourceTree = "<group>"; };
 		C54381EF2C24C25000DB7B27 /* LogoLoadScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoLoadScreen.swift; sourceTree = "<group>"; };
 		C54381F32C25FFE400DB7B27 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		C54381F52C26C7FA00DB7B27 /* PersonPhotoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonPhotoScreen.swift; sourceTree = "<group>"; };
 		C5CC6FE62C1F5F3600E707E4 /* AboutYorselfScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutYorselfScreen.swift; sourceTree = "<group>"; };
 		C5CC6FE82C1FFDA100E707E4 /* InterectionFormatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterectionFormatScreen.swift; sourceTree = "<group>"; };
 		C5CC6FEA2C200BE300E707E4 /* TableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				C5CC6FEE2C22B3CE00E707E4 /* LastAuthScreen.swift */,
 				C54381EF2C24C25000DB7B27 /* LogoLoadScreen.swift */,
 				C5CC6FF52C234C9400E707E4 /* BrandPictureSelecterView.swift */,
+				C54381F52C26C7FA00DB7B27 /* PersonPhotoScreen.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				2E81F4862C1DC4590032BFC7 /* IdentifiableAlert.swift in Sources */,
 				2E81F4982C1DE6020032BFC7 /* AuthAndRegistrationResponseModels.swift in Sources */,
 				C5CC6FE72C1F5F3600E707E4 /* AboutYorselfScreen.swift in Sources */,
+				C54381F62C26C7FA00DB7B27 /* PersonPhotoScreen.swift in Sources */,
 				2E81F48B2C1DC4590032BFC7 /* ErrorResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
