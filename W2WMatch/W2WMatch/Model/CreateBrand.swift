@@ -9,13 +9,29 @@ import Foundation
 
 // MARK: - CreateBrandRequestBody
 struct CreateBrandRequestBody: Codable {
-    var category, presenceType, publicSpeaker, subsCount: RequestQuestionType
-    var avgBill: RequestQuestionType
-    var goals, formats, collaborationInterest: [RequestQuestionType]
-    var tgNickname, brandNamePos, instBrandURL: String
-    var brandSiteURL, topics, missionStatement, targetAudience: String
-    var uniqueProductIs, productDescription, problemSolving, businessGroup: String
-    var logo, photo, productPhoto, fullname: String
+    var category = RequestQuestionType()                // доделать в RegistrationStep6. question = 4
+    var presenceType = RequestQuestionType()            // доделать в RegistrationStep7. question = 7
+    var publicSpeaker = RequestQuestionType()           // доделать в RegistrationStep10. question = 9
+    var subsCount = RequestQuestionType()               // доделать в RegistrationStep4. question = 10
+    var avgBill = RequestQuestionType()                 // доделать в RegistrationStep5. question = 11
+    var goals = [RequestQuestionType()]                 // доделать в VeryImportantScreen. question = 18
+    var formats = [RequestQuestionType()]               // доделать в InterectionFormatScreen. question = 17
+    var collaborationInterest = [RequestQuestionType()] // доделать в RegistrationStep11. question = 19
+    var tgNickname = ""              // done
+    var brandNamePos = ""           // done
+    var instBrandURL = ""           // done
+    var brandSiteURL = ""           // done
+    var topics = ""                 // done
+    var missionStatement = ""       // done
+    var targetAudience = ""      // check me on AboutYorselfScreen
+    var uniqueProductIs = ""        // done
+    var productDescription = ""     // done
+    var problemSolving = ""         // done
+    var businessGroup = ""          // done
+    var logo = ""                   // 13
+    var photo = ""                  // 14
+    var productPhoto = ""           // 12 LastAuthScreen
+    var fullname = ""               // done
 
     enum CodingKeys: String, CodingKey {
         case category
@@ -44,8 +60,8 @@ struct CreateBrandRequestBody: Codable {
 
 // MARK: - AvgBill
 struct RequestQuestionType: Codable {
-    var text: String
-    var question: Int
+    var text: String = ""
+    var question: Int = 0
 }
 
 

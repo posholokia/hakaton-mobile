@@ -9,8 +9,7 @@ import SwiftUI
 
 struct RegistrationStep3: View {
     
-    @EnvironmentObject var mainVm: MainViewModel
-    @State var user = AutorizedUser()
+    @State var brand = CreateBrandRequestBody()
     
     var body: some View {
         GeometryReader { geometry in
@@ -19,7 +18,7 @@ struct RegistrationStep3: View {
                     
                     Spacer()
                     
-                    Text("Расскажи о своем\nбренде")
+                    Text("Расскажите о своем\nбренде")
                         .foregroundColor(Color("W2wBlueColor"))
                         .font(.custom("PoiretOne-Regular", size: 34))
                         .multilineTextAlignment(.center)
@@ -28,9 +27,6 @@ struct RegistrationStep3: View {
                     Spacer()
                     
                     VStack {
-                        
-                        
-                        
                         HStack {
                             Text("Название Вашего бренда и должность")
                                 .font(Font.custom("Manrope", size: 14))
@@ -39,7 +35,7 @@ struct RegistrationStep3: View {
                             Spacer()
                         }
                         
-                        TextField(text: $user.myBrand.name.animation()) {
+                        TextField(text: $brand.brandNamePos.animation()) {
                             Text("Название бренда")
                                 .font(Font.custom("Manrope", size: 14).weight(.light))
                                 .lineSpacing(20)
@@ -65,7 +61,7 @@ struct RegistrationStep3: View {
                             Spacer()
                         }
                         
-                        TextField(text: $user.myBrand.tgName.animation()) {
+                        TextField(text: $brand.tgNickname.animation()) {
                             Text("@nic")
                                 .font(Font.custom("Manrope", size: 14).weight(.light))
                                 .lineSpacing(20)
@@ -90,7 +86,7 @@ struct RegistrationStep3: View {
                             Spacer()
                         }
                         
-                        TextField(text: $user.myBrand.shopLink.animation()) {
+                        TextField(text: $brand.brandSiteURL.animation()) {
                             Text("Ссылка")
                                 .font(Font.custom("Manrope", size: 14).weight(.light))
                                 .lineSpacing(20)
@@ -112,9 +108,8 @@ struct RegistrationStep3: View {
                     //.frame(width: 358)
                     
 
-                    NavigationLink(destination: AboutYorselfScreen(user: user)) {
+                    NavigationLink(destination: RegistrationStep4(brand: brand)) {
                         Text("Далее")
-                        //надо передать данные на сервер
                     }
                     .frame(width: geometry.size.width - 120, height: 45.0)
                     .foregroundStyle(.white)
@@ -123,18 +118,6 @@ struct RegistrationStep3: View {
                             .fill(Color("W2wLightBlueColor"))
                     }
                     .padding(.top)
-                    
-//                    NavigationLink(destination: MainPageView(user: user)) {
-//                        Text("Далее")
-//                    }
-//                    .frame(width: 255.0, height: 45.0)
-//                    .foregroundStyle(.white)
-//                    .background {
-//                        RoundedRectangle(cornerRadius: 15)
-//                            .fill(Color("W2wLightBlueColor"))
-//                    }
-//                    .padding(.top)
-                    
                     
                     Image("Vector")
                         .padding(.top, 38.0)
@@ -150,5 +133,5 @@ struct RegistrationStep3: View {
 }
 
 #Preview {
-    RegistrationStep3(user: AutorizedUser())
+    RegistrationStep3()
 }

@@ -13,12 +13,12 @@ class MainViewModel: ObservableObject {
     // показ экранов
     @Published var showAuthContainer = true
     @Published var successfullRegistration = false
-    @Published var navigateToNextView: Bool = false
+    //@Published var navigateToNextView: Bool = false
  
     @Published var loginPending = false
     @Published var registerPending = false
     
-    @Published var user: AutorizedUser?
+    //@Published var user: AutorizedUser?
     
     // для проверки
     @Published var brandAuthBody = CreateBrandRequestBody(category: RequestQuestionType(text: "Красота и здоровье", question: 4),
@@ -144,6 +144,7 @@ class MainViewModel: ObservableObject {
                 }
             }
         }
+        self.successfullRegistration = false
     }
     
     
@@ -172,21 +173,17 @@ class MainViewModel: ObservableObject {
         }
     }
     
-    func handleImageNavigation(photoData: Data?, completion: @escaping (String) -> () ) {
-        if let photoData, let uiImage = UIImage(data: photoData) {
-            let img = uiImage
-            let base64 = img.base64
-            let rebornImg = base64?.imageFromBase64
-            guard let rebornImg = rebornImg else { return }
-            
-            let base64String = img.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
-            completion(base64String)
-            print("base 64 string: ", base64String)
-      
-        } else {
-            print("Invalid photo data")
-        }
-    }
+//    func handleImageNavigation(photoData: Data) -> String  {
+//        if let uiImage = UIImage(data: photoData) {
+//           
+//            guard let base64 = uiImage.base64 else { return  "" }
+//            
+//            //print("base 64 string: ", base64)
+//            return base64
+//      
+//        }
+//        return ""
+//    }
     /*
     func getDevelopers() {
         withAnimation {
