@@ -70,11 +70,25 @@ extension UIImage {
     }
 }
 
-extension String {
-    var imageFromBase64: UIImage? {
-        guard let imageData = Data(base64Encoded: self, options: .ignoreUnknownCharacters) else {
-            return nil
+extension Data {
+    var convertingDataToBase64String: String? {
+        if let uiImage = UIImage(data: self) {
+           
+            guard let base64 = uiImage.base64 else { return  "" }
+            
+            //print("base 64 string: ", base64)
+            return base64
+      
         }
-        return UIImage(data: imageData)
+        return ""
     }
 }
+//
+//extension String {
+//    var imageFromBase64: UIImage? {
+//        guard let imageData = Data(base64Encoded: self, options: .ignoreUnknownCharacters) else {
+//            return nil
+//        }
+//        return UIImage(data: imageData)
+//    }
+//}

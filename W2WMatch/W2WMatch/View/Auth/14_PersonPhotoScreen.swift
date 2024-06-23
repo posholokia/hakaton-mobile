@@ -9,9 +9,10 @@ import SwiftUI
 
 struct PersonPhotoScreen: View {
     let brandView = BrandPictureSelecterView(photoItem: GalleryItem())
-    var photoData: Data?
-    @State var text = ""
-    @State var user = AutorizedUser()
+    //var photoData: Data?
+    //@State var text = ""
+    //@State var user = AutorizedUser()
+    @State var brand = CreateBrandRequestBody()
     @EnvironmentObject var mainVM: MainViewModel
    
     
@@ -39,18 +40,24 @@ struct PersonPhotoScreen: View {
                 
                 brandView
                 
-            
-                
-                Button("Далее") {
+                Button("Готово") {
 
-                    if let photoData = photoData {
-                        mainVM.handleImageNavigation(photoData: photoData) { base64String in
-                            self.text = base64String
-                            
-                            print(1)
-                        }
+                    if let data = brandView.photoItem.PhotoData {
+                        print("Что то есть")
+
+                        guard let stringFromData = data.convertingDataToBase64String else { return }
+
+                        print("base 64 string: ", stringFromData.count)
+                        
+                        brand.photo = stringFromData
+                        
+                        // Включить после тестов
+                        //mainVM.createBrand(authBody: brand)
+                        // Выключить после тестов
+                        mainVM.successfullRegistration = false
                     } else {
-                        print("No photo data avilable")
+                        // allert
+                        print("Фото не выбрано")
                     }
                     
                 }
@@ -62,12 +69,15 @@ struct PersonPhotoScreen: View {
                 }
             
                 Image("Vector")
-                    .padding(.top, 130)
+                    .padding(.top, 30)
+                
+                Spacer()
             }
             .frame(width: geometry.size.width - 120, height: geometry.size.height)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        Spacer()
+        .navigationArrowLef()
+        .background(Color(red: 248, green: 248, blue: 248))
     }
 }
 

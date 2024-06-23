@@ -9,13 +9,13 @@ import SwiftUI
 
 struct LastAuthScreen: View {
     
-    let brandView = BrandPictureSelecterView(photoItem: GalleryItem())
-    var photoData: Data?
+    @State var brandView = BrandPictureSelecterView(photoItem: GalleryItem())
+    //var photoData: Data?
     @State private var navigateToNextView = false
-    @State var text = ""
-    @State var user = AutorizedUser()
-    @EnvironmentObject var mainVM: MainViewModel
-   
+    //@State var text = ""
+    //@State var user = AutorizedUser()
+    @State var brand = CreateBrandRequestBody()
+    //@EnvironmentObject var mainVM: MainViewModel
     
     var body: some View {
         GeometryReader { geometry in
@@ -41,22 +41,27 @@ struct LastAuthScreen: View {
                 
                 brandView
                 
-                NavigationLink(destination: LogoLoadScreen(user: user), isActive: $navigateToNextView) {
+
+                NavigationLink(destination: LogoLoadScreen(brand: brand), isActive: $navigateToNextView) {
                     EmptyView()
                 }
                 
                 Button("Далее") {
-                    self.navigateToNextView = true
-                    if let photoData = photoData {
-                        mainVM.handleImageNavigation(photoData: photoData) { base64String in
-                            self.text = base64String
-                            
-                            print(1)
-                        }
+                    if let data = brandView.photoItem.PhotoData {
+                        print("Что то есть")
+                        //let string1 = data.base64EncodedString()
+                        guard let stringFromData = data.convertingDataToBase64String else { return }
+                        //let str = mainVM.handleImageNavigation(photoData: data)
+
+                        print("base 64 string: ", stringFromData.count)
+                        
+                        brand.productPhoto = stringFromData
+                        
+                        self.navigateToNextView = true
                     } else {
-                        print("No photo data avilable")
+                        // allert
+                        print("Фото не выбрано")
                     }
-                    
                 }
                 .frame(width: 250, height: 45.0)
                 .foregroundStyle(.white)
@@ -66,19 +71,21 @@ struct LastAuthScreen: View {
                 }
             
                 Image("Vector")
-                    .padding(.top, 130)
+                    .padding(.top, 30)
+                
+                Spacer()
             }
             .frame(width: geometry.size.width - 120, height: geometry.size.height)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        Spacer()
+        .navigationArrowLef()
+        .background(Color(red: 248, green: 248, blue: 248))
     }
 }
 
 
 #Preview {
-    LastAuthScreen(photoData: nil, user: AutorizedUser())
-        .environmentObject(MainViewModel())
+    LastAuthScreen()
 }
 
 

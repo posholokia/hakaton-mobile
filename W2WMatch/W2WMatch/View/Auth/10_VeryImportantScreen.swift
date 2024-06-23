@@ -9,15 +9,18 @@ import SwiftUI
 
 struct VeryImportantScreen: View {
     
-    @State var user = AutorizedUser()
-    @EnvironmentObject var mainVm: MainViewModel
+    @State var brand = CreateBrandRequestBody()
     
-    let options = ["Рост продаж", "Новая аудитория и охваты в соцсетях", "Повышение узнаваемоести и лояльности", "Совместное творчество и усиление навыков команды", "Другое"]
+    let optionsGoals = ["Рост продаж",
+                        "Новая аудитория и охваты в соцсетях",
+                        "Повышение узнаваемоести и лояльности",
+                        "Совместное творчество и усиление навыков команды"]
+                   //"Другое"]
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                Text("И последний, самый важный")
+                Text("Ваша цель для коллабораций")
                     .foregroundColor(Color("W2wBlueColor"))
                     .font(.custom("PoiretOne-Regular", size: 34))
                     .multilineTextAlignment(.center)
@@ -43,14 +46,13 @@ struct VeryImportantScreen: View {
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
-                ForEach(options, id: \.self) { option in
+                ForEach(optionsGoals, id: \.self) { option in
                     TableRow(text: option)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 
-                NavigationLink(destination: LastAuthScreen(user: user)) {
+                NavigationLink(destination: RegistrationStep11(brand: brand)) {
                     Text("Далее")
-                    //надо передать данные на сервер
                 }
                 .frame(width: geometry.size.width - 120, height: 45.0)
                 .foregroundStyle(.white)
@@ -66,14 +68,14 @@ struct VeryImportantScreen: View {
             .frame(width: geometry.size.width - 120, height: geometry.size.height)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        
-        Spacer()
+        .navigationArrowLef()
+        .background(Color(red: 248, green: 248, blue: 248))
     }
 }
 
 
 #Preview {
-    VeryImportantScreen(user: AutorizedUser())
+    VeryImportantScreen()
 }
 
 

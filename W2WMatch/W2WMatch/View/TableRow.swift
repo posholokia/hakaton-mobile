@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TableRow: View {
-    @State private var isChecked: Bool = false
+    @State var isChecked: Bool = false
     var text: String
     
     var body: some View {
@@ -24,8 +24,6 @@ struct TableRow: View {
                     .font(Font.custom("Manrope", size: 14).weight(.ultraLight))
             
             Spacer()
-            
-           
         }
         .padding(.trailing, 0)
         .frame(maxWidth: .infinity)
@@ -34,7 +32,6 @@ struct TableRow: View {
         RoundedRectangle(cornerRadius: 10)
             .fill(Color.white)
             .shadow(color: Color.gray.opacity(0.2), radius: 10, x: 0, y: 2)
-            
         )
     }
 }
@@ -43,6 +40,8 @@ struct CheckBoxToggelStyle: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
         Button(action: {
             configuration.isOn.toggle()
+            
+            //print(configuration.isOn ? "On" : "Off")
         }) {
             HStack {
                 Image(systemName: configuration.isOn ? "checkmark.square" : "square")
