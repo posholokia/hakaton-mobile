@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class GalleryItem: ObservableObject {
     var PhotoData: Data?
 }

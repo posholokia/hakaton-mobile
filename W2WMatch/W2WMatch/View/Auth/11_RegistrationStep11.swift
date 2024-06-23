@@ -1,20 +1,31 @@
 //
-//  InterectionFormatScreen.swift
+//  RegistrationStep11.swift
 //  W2WMatch
 //
-//  Created by Игорь Крысин on 17.06.2024.
+//  Created by Floron on 22.06.2024.
 //
 
 import SwiftUI
 
-struct InterectionFormatScreen: View {
-    @State var user = AutorizedUser()
-    let options = ["Не определилась с форматом, но готова к обсуждению", "Совместный прямой эфир", "Совместный прямой reels", "Совместный прямой пост", "Выпустить совместный продукт", "Провести совместно мероприятие"]
+struct RegistrationStep11: View {
+    
+    @State var brand = CreateBrandRequestBody()
+    
+    let collaborationInterest = ["Я открыта к экспериментам и категория партнера мне не важна",
+                                 "Образование и эксперты",
+                                 "HoReCa",
+                                 "Украшения",
+                                 "Услуги",
+                                 "Товары для дома",
+                                 "Красота и здоровье",
+                                 "Товары для детей",
+                                 "Одежда и обувь"]
+
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                Text("Очень хорошо! Осталось всего пару вопросов")
+                Text("С кем бы Вы хотели создать коллаборацию?")
                     .foregroundColor(Color("W2wBlueColor"))
                     .font(.custom("PoiretOne-Regular", size: 34))
                     .multilineTextAlignment(.center)
@@ -24,7 +35,7 @@ struct InterectionFormatScreen: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.bottom, 18)
                 
-                Text("Какие форматы взаимодействия вас интересуют?")
+                Text("С бизнесом из какой категории вам было бы интересно сделать коллаборацию?")
                     .font(Font.custom("Manrope", size: 14))
                     .tracking(0.28)
                     .foregroundColor(Color("W2wBlueColor"))
@@ -38,14 +49,17 @@ struct InterectionFormatScreen: View {
                     .foregroundColor(Color("SecondaryText"))
                     .padding(.bottom, 24)
                     .multilineTextAlignment(.leading)
-                
                     .frame(maxWidth: .infinity, alignment: .leading)
-                ForEach(options, id: \.self) { option in
-                    TableRow(text: option)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                Button("Далее") {
-                    //отправка данных на сервер
+                
+                ScrollView {
+                    ForEach(collaborationInterest, id: \.self) { option in
+                        TableRow(text: option)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }.scrollIndicators(.hidden)
+                
+                NavigationLink(destination: LastAuthScreen(brand: brand)) {
+                    Text("Далее")
                 }
                 .frame(width: geometry.size.width - 120, height: 45.0)
                 .foregroundStyle(.white)
@@ -54,22 +68,19 @@ struct InterectionFormatScreen: View {
                         .fill(Color("W2wLightBlueColor"))
                 }
                 .padding(.top)
+                
                 Image("Vector")
                     .padding(.top, 20)
             }
-            
             .frame(width: geometry.size.width - 120, height: geometry.size.height)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        Spacer()
-        
-        
+        .navigationArrowLef()
+        .background(Color(red: 248, green: 248, blue: 248))
     }
 }
 
 
 #Preview {
-    InterectionFormatScreen(user: AutorizedUser())
+    RegistrationStep11()
 }
-
-

@@ -9,41 +9,19 @@ import Foundation
 import SwiftUI
 
 struct AboutYorselfScreen: View {
-    @EnvironmentObject var mainVm: MainViewModel
-    @State var user = AutorizedUser()
+    
+    @State var user = AutorizedUser().yourselfinfo
+    @State var brand = CreateBrandRequestBody()
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                Text("Супер! Расскажи немного\nподробнее")
+                Text("Супер!\nРасскажите о Вашей аудитории")
                     .foregroundColor(Color("W2wBlueColor"))
                     .font(.custom("PoiretOne-Regular", size: 34))
                     .multilineTextAlignment(.center)
-                    .padding(.bottom, 18)
-                
-                Text("На какие темы с тбой можно пообщаться? Или по каким темам ты можешь дать рекомендации?")
-                    .font(Font.custom("Manrope", size: 14))
-                    .tracking(0.28)
-                    .foregroundColor(Color("W2wBlueColor"))
-                    .padding(.bottom, 8)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                TextField(text: $user.yourselfinfo.theme.animation()) {
-                    Text("Перечислите темы")
-                        .font(Font.custom("Manrope", size: 14).weight(.light))
-                        .lineSpacing(20)
-                        .foregroundColor(Color("W2wLightBlueColor"))
-                    
-                }
-                .textInputAutocapitalization(.never)
-                .keyboardType(.default)
-                .disableAutocorrection(true)
-                .padding()
-                .overlay( /// apply a rounded border
-                    RoundedRectangle(cornerRadius: 15)
-                .stroke(Color("FrameRegistration"), lineWidth: 2))
-                .foregroundStyle(Color("FrameRegistration"))
-                .padding(.bottom, 25.0)
+                    .padding(.bottom, 48)
+
                 Text("Расскажите нам о ядре Вашей целевовй аудитории")
                     .font(Font.custom("Manrope", size: 14))
                     .tracking(0.28)
@@ -52,12 +30,11 @@ struct AboutYorselfScreen: View {
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 HStack {
-                    TextField(text: $user.yourselfinfo.gender.animation()) {
+                    TextField(text: $user.gender.animation()) {
                         Text("Пол")
                             .font(Font.custom("Manrope", size: 14).weight(.light))
                             .lineSpacing(20)
                             .foregroundColor(Color("W2wLightBlueColor"))
-                        
                     }
                     .textInputAutocapitalization(.never)
                     .keyboardType(.default)
@@ -67,7 +44,7 @@ struct AboutYorselfScreen: View {
                         RoundedRectangle(cornerRadius: 15)
                     .stroke(Color("FrameRegistration"), lineWidth: 2))
                     .foregroundStyle(Color("FrameRegistration"))
-                    TextField(text: $user.yourselfinfo.age.animation()) {
+                    TextField(text: $user.age.animation()) {
                         Text("Возраст")
                             .font(Font.custom("Manrope", size: 14).weight(.light))
                             .lineSpacing(20)
@@ -86,7 +63,7 @@ struct AboutYorselfScreen: View {
                 }
                 .padding(.bottom, 8)
                 HStack {
-                    TextField(text: $user.yourselfinfo.incomeLevel.animation()) {
+                    TextField(text: $user.incomeLevel.animation()) {
                         Text("Ур. дохода")
                             .font(Font.custom("Manrope", size: 14).weight(.light))
                             .lineSpacing(20)
@@ -102,7 +79,8 @@ struct AboutYorselfScreen: View {
                         RoundedRectangle(cornerRadius: 15)
                     .stroke(Color("FrameRegistration"), lineWidth: 2))
                     .foregroundStyle(Color("FrameRegistration"))
-                    TextField(text: $user.yourselfinfo.geographic.animation()) {
+                    
+                    TextField(text: $user.geographic.animation()) {
                         Text("ГЕО")
                             .font(Font.custom("Manrope", size: 14).weight(.light))
                             .lineSpacing(20)
@@ -119,7 +97,8 @@ struct AboutYorselfScreen: View {
                     .foregroundStyle(Color("FrameRegistration"))
                 }
                 .padding(.bottom, 8)
-                TextField(text: $user.yourselfinfo.interests.animation()) {
+                
+                TextField(text: $user.interests.animation()) {
                     Text("Интереcы")
                         .font(Font.custom("Manrope", size: 14).weight(.light))
                         .lineSpacing(20)
@@ -134,10 +113,9 @@ struct AboutYorselfScreen: View {
                     RoundedRectangle(cornerRadius: 15)
                 .stroke(Color("FrameRegistration"), lineWidth: 2))
                 .foregroundStyle(Color("FrameRegistration"))
-                
-                NavigationLink(destination: InterectionFormatScreen(user: user)) {
+
+                NavigationLink(destination: InterectionFormatScreen(brand: brand)) {
                     Text("Далее")
-                    //надо передать данные на сервер
                 }
                 .frame(width: geometry.size.width - 120, height: 45.0)
                 .foregroundStyle(.white)
@@ -145,23 +123,26 @@ struct AboutYorselfScreen: View {
                     RoundedRectangle(cornerRadius: 15)
                         .fill(Color("W2wLightBlueColor"))
                 }
-                
-//                Button("Далее") {
-//                    mainVm.user = user
-//                    mainVm.successfullRegistration = false //тут все так??
-//                }
-                
                 .padding(.top)
+                .onTapGesture {
+                   // print(user)
+                    brand.targetAudience = user.gender + user.age + user.incomeLevel + user.geographic + user.interests
+                    //print(brand.targetAudience)
+                }
+                
                 Image("Vector")
                     .padding(.top, 38.0)
                 
                 //Spacer()
-            }.frame(width: geometry.size.width - 120, height: geometry.size.height)
+            }
+            .frame(width: geometry.size.width - 120, height: geometry.size.height)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .navigationArrowLef()
+        .background(Color(red: 248, green: 248, blue: 248))
     }
 }
 
 #Preview {
-    AboutYorselfScreen(user: AutorizedUser())
+    AboutYorselfScreen()
 }

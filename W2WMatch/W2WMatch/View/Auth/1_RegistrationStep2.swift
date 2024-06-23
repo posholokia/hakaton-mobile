@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegistrationStep2: View {
-    @State var user = AutorizedUser()
+    @State var brand = CreateBrandRequestBody()
     
     var body: some View {
         GeometryReader { geometry in
@@ -32,7 +32,7 @@ struct RegistrationStep2: View {
                         .foregroundColor(Color("W2wBlueColor"))
                         
                         
-                        Text("Ответы займут 10-15 минут. Можешь вернуться\nк завершению регистрации позже. Если переживаешь,,что забудешь,-  оставь свой номер телефона,  мы напомним.")
+                        Text("Ответы займут 10-15 минут. Можешь вернуться\nк завершению регистрации позже. Если переживаешь,что забудешь - оставь свой номер телефона, мы напомним.")
                             .font(Font.custom("Manrope", size: 12))
                             .tracking(0.28)
                             .foregroundColor(Color("W2wLightBlueColor"))
@@ -48,7 +48,7 @@ struct RegistrationStep2: View {
                             Spacer()
                         }
                         
-                        TextField(text: $user.name.animation()) {
+                        TextField(text: $brand.fullname.animation()) {
                             Text("Имя и фамилия")
                                 .font(Font.custom("Manrope", size: 14).weight(.light))
                                 .lineSpacing(20)
@@ -74,7 +74,7 @@ struct RegistrationStep2: View {
                             Spacer()
                         }
                         
-                        TextField(text: $user.telegrammNik.animation()) {
+                        TextField(text: $brand.tgNickname.animation()) {
                             Text("@nic")
                                 .font(Font.custom("Manrope", size: 14).weight(.light))
                                 .lineSpacing(20)
@@ -95,19 +95,7 @@ struct RegistrationStep2: View {
                     .padding(.horizontal, 50.0)
                     .frame(width: 358)
                     
-
-//                    Button("Далее") {
-//                        
-//                    }
-//                    .frame(width: 255.0, height: 45.0)
-//                    .foregroundStyle(.white)
-//                    .background {
-//                        RoundedRectangle(cornerRadius: 15)
-//                            .fill(Color("W2wLightBlueColor"))
-//                    }
-//                    .padding(.top)
-                    
-                    NavigationLink(destination: RegistrationStep3(user: user)) {
+                    NavigationLink(destination: RegistrationStep3(brand: brand)) {
                         Text("Далее")
                     }
                     .frame(width: 255.0, height: 45.0)
