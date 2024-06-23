@@ -26,15 +26,17 @@ struct RegistrationStep6: View {
             ScrollView {
                 VStack {
                     
-                    Spacer()
+                   // Spacer()
                     
                     Text("Расскажите\nо своем бизнесе")
                         .foregroundColor(Color("W2wBlueColor"))
                         .font(.custom("PoiretOne-Regular", size: 34))
                         .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.bottom, 15)
                         
                      
-                    Spacer()
+                   // Spacer()
                     
                     VStack {
 
@@ -69,19 +71,21 @@ struct RegistrationStep6: View {
                     //.frame(width: 358)
                     
 
-                    NavigationLink(destination: RegistrationStep7(brand: brand)) {
-                        Text("Далее")
-                    }
-                    .frame(width: geometry.size.width - 120, height: 45.0)
-                    .foregroundStyle(.white)
-                    .background {
-                        RoundedRectangle(cornerRadius: 15)
-                            .fill(Color("W2wLightBlueColor"))
-                    }
+//                    ScrollView {
+                        NavigationLink(destination: RegistrationStep7(brand: brand)) {
+                            Text("Далее")
+                        }
+                        .frame(width: geometry.size.width - 120, height: 45.0)
+                        .foregroundStyle(.white)
+                        .background {
+                            RoundedRectangle(cornerRadius: 15)
+                                .fill(Color("W2wLightBlueColor"))
+                        }
+//                    }
                    // .padding(.top)
                     
                     Image("Vector")
-                        //.padding(.top)
+                        .padding(.top, 30)
                     
                     Spacer()
                 }

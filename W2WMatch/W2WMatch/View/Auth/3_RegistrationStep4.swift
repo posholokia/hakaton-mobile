@@ -21,13 +21,12 @@ struct RegistrationStep4: View {
             ScrollView {
                 VStack {
                     
-                    Spacer()
+                    //Spacer()
                     
                     Text("Расскажите о своем\nбренде")
                         .foregroundColor(Color("W2wBlueColor"))
                         .font(.custom("PoiretOne-Regular", size: 34))
                         .multilineTextAlignment(.center)
-                        
                      
                     Spacer()
                     
@@ -50,13 +49,21 @@ struct RegistrationStep4: View {
                         .textInputAutocapitalization(.never)
                         .keyboardType(.default)
                         .disableAutocorrection(true)
-                        .padding()
-                        .frame(width: 255.0, height: 45.0)
-                        .overlay( /// apply a rounded border
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color("W2wLightBlueColor"), lineWidth: 2))
+                        .padding(EdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16))
+                        .frame(width: 255, height: 45)
+                        .background(.white)
+                        .cornerRadius(12)
+                        .shadow(
+                            color: Color(red: 0.46, green: 0.54, blue: 0.71, opacity: 0.2), radius: 12, x: 3, y: 3
+                        )
                         .foregroundStyle(Color("W2wLightBlueColor"))
-                        .padding(.bottom, 25.0)
+//                        .padding()
+//                        .frame(width: 255.0, height: 45.0)
+//                        .overlay( /// apply a rounded border
+//                            RoundedRectangle(cornerRadius: 15)
+//                                .stroke(Color("W2wLightBlueColor"), lineWidth: 2))
+//                        .foregroundStyle(Color("W2wLightBlueColor"))
+//                        .padding(.bottom, 25.0)
                         
                         Text("Сколько подписчиков у Вашего бренда в запрещенной сети?")
                             .font(Font.custom("Manrope", size: 14))
@@ -66,6 +73,7 @@ struct RegistrationStep4: View {
                             .multilineTextAlignment(.leading)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .fixedSize(horizontal: false, vertical: true)
+                            .padding(.top, 15)
                         
                         Text("Выберите один вариант")
                             .font(Font.custom("Manrope", size: 12))
@@ -101,7 +109,7 @@ struct RegistrationStep4: View {
                     .padding(.top)
                     
                     Image("Vector")
-                        .padding(.top, 38.0)
+                        .padding(.top, 30.0)
                     
                     Spacer()
                 }

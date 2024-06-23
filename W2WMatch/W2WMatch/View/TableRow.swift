@@ -29,9 +29,9 @@ struct TableRow: View {
         .frame(maxWidth: .infinity)
         .padding()
         .background(
-        RoundedRectangle(cornerRadius: 10)
-            .fill(Color.white)
-            .shadow(color: Color.gray.opacity(0.2), radius: 10, x: 0, y: 2)
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.white)
+                .shadow(color: Color.gray.opacity(0.2), radius: 10, x: 0, y: 2)
         )
     }
 }

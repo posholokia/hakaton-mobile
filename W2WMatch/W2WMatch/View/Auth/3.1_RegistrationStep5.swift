@@ -22,15 +22,16 @@ struct RegistrationStep5: View {
             ScrollView {
                 VStack {
                     
-                    Spacer()
+                   // Spacer()
                     
                     Text("Расскажите о своем\nбренде")
                         .foregroundColor(Color("W2wBlueColor"))
                         .font(.custom("PoiretOne-Regular", size: 34))
                         .multilineTextAlignment(.center)
+                        .padding(.bottom, 50)
                         
                      
-                    Spacer()
+                  // Spacer()
                     
                     VStack {
 
@@ -77,7 +78,7 @@ struct RegistrationStep5: View {
                     .padding(.top)
                     
                     Image("Vector")
-                        .padding(.top, 38.0)
+                        .padding(.top, 30.0)
                     
                     Spacer()
                 }
