@@ -18,7 +18,7 @@ struct PersonPhotoScreen: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                Text("Остается только показать всем ваш продукт")
+                Text("Ваше персональное фото")
                     .foregroundColor(Color("W2wBlueColor"))
                     .font(.custom("PoiretOne-Regular", size: 34))
                     .multilineTextAlignment(.center)
